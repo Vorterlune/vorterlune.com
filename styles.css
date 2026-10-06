@@ -195,6 +195,9 @@ h3 {
   position: relative;
   z-index: 1;
 }
+.copy-short {
+  display: none;
+}
 .eyebrow {
   font-family: var(--mono);
   font-size: 13px;
@@ -1559,6 +1562,12 @@ body:has(dialog[open]) {
   }
 }
 @media (max-width: 600px) {
+  .copy-wide {
+    display: none;
+  }
+  .copy-short {
+    display: inline;
+  }
   .page-shell {
     padding: 0 6%;
   }
@@ -1579,31 +1588,38 @@ body:has(dialog[open]) {
   }
   .hero {
     min-height: 0;
-    display: block;
-    padding-bottom: 318px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    padding: 36px 0 28px;
   }
   .hero-copy {
-    padding: 48px 0 0;
+    display: contents;
   }
   .hero .eyebrow {
+    grid-row: 1;
     font-size: 10px;
     letter-spacing: 0.145em;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+    text-align: center;
   }
   h1 {
     font-size: clamp(40px, 13.5vw, 73px);
     white-space: nowrap;
     line-height: 1;
   }
-  .hero-description {
-    font-size: 16px;
-    line-height: 1.55;
-    margin-top: 22px;
-    max-width: 390px;
+  .hero h1 {
+    grid-row: 2;
+    text-align: center;
+    margin-bottom: 8px;
   }
   .hero-actions {
-    margin-top: 24px;
-    gap: 25px;
+    grid-row: 4;
+    margin-top: 8px;
+  }
+  .hero-actions .button-primary {
+    width: 100%;
+    min-height: 52px;
+    font-size: 16px;
   }
   .button-primary {
     font-size: 14px;
@@ -1616,34 +1632,35 @@ body:has(dialog[open]) {
     width: 16px;
     height: 16px;
   }
-  .hero-actions .text-link {
-    font-size: 13px;
-    padding: 5px 0;
-  }
-  .hero-signoff {
-    font-size: 10px;
-    margin-top: 26px;
-    letter-spacing: 0.035em;
+  .hero-description,
+  .hero-actions .text-link,
+  .hero-signoff,
+  .section-aside,
+  .philosophy-motto {
+    display: none;
   }
   .hero-scene {
+    position: relative;
+    grid-row: 3;
+    z-index: 0;
     top: auto;
-    bottom: -12px;
-    right: -6.83%;
-    width: 113.66%;
-    height: 348px;
+    bottom: auto;
+    margin-left: -6.818182%;
+    width: 113.636364%;
+    height: clamp(250px, 80vw, 390px);
     opacity: 1;
     mask-image: linear-gradient(
       to bottom,
       transparent 0%,
-      #000 17%,
-      #000 83%,
+      #000 12%,
+      #000 88%,
       transparent 100%
     );
     -webkit-mask-image: linear-gradient(
       to bottom,
       transparent 0%,
-      #000 17%,
-      #000 83%,
+      #000 12%,
+      #000 88%,
       transparent 100%
     );
   }
@@ -1659,7 +1676,7 @@ body:has(dialog[open]) {
     object-position: center 55%;
   }
   .orbit-top {
-    left: 80%;
+    left: 87%;
     top: 16px;
     width: 60px;
     height: 45px;
@@ -1675,7 +1692,7 @@ body:has(dialog[open]) {
     font-size: 12px;
   }
   .orbit-bottom {
-    bottom: 26px;
+    bottom: 84px;
     left: 0;
     width: 200px;
   }
@@ -1983,6 +2000,6 @@ body {
 }
 @media (max-width: 600px) {
   .hero-scene {
-    right: -6.83%;
+    right: auto;
   }
 }
