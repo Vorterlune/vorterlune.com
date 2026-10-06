@@ -42,4 +42,6 @@ Navigation and project details work with a keyboard. Native dialogs support Esca
 
 The original designer SVG geometry and colors are preserved, with empty artboard space removed. The hero illustration was created with the built-in image-generation tool and encoded as WebP for delivery. The generation brief is recorded in `assets/ARTWORK.md`.
 
+The Studio section includes a philosophy panel with a separate night-studio illustration, `assets/studio-philosophy.webp`. It loads lazily, and its heading, copy, and motto remain accessible HTML. Its generation prompt is also recorded in `assets/ARTWORK.md`.
+
 Inter and Caveat are distributed under the SIL Open Font License; their license files are in `assets/`.
