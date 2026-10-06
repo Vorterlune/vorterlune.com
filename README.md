@@ -18,12 +18,21 @@ Open <http://localhost:4173>. There is no build step or runtime dependency.
 - `styles.css`: responsive styling, project interface previews, and animations.
 - `script.js`: stars, motion preferences, subtle pointer parallax, and accessible project dialogs.
 - `assets/`: supplied designer logos, self-hosted fonts, and the hero illustration.
+- `robots.txt` and `sitemap.xml`: crawler access and the canonical page inventory.
 
 The project previews are HTML/CSS interpretations of the supplied reference. Project cards open descriptions because the project repositories are not public. The GitHub links point to the Vorterlune organization.
 
 ## Publish
 
-GitHub Pages can serve `main` from the repository root. `.nojekyll` disables unnecessary Jekyll processing. All asset paths are relative so the site works at both a repository URL and a custom domain. No custom domain or DNS changes are made by this implementation.
+GitHub Pages publishes `main` from the repository root at <https://vorterlune.com/>. Pushing to `main` triggers a deployment. `CNAME` preserves the custom domain, and `.nojekyll` disables unnecessary Jekyll processing. HTTPS is enforced, and `www.vorterlune.com` redirects to the canonical domain.
+
+## Search and sharing
+
+The homepage includes a descriptive title and meta description, a canonical URL, Open Graph and Twitter sharing metadata, and JSON-LD for the Vorterlune website and studio. Sharing previews reuse the existing square studio illustration. All descriptions are present in static HTML; no JavaScript is needed to read the studio or project summaries.
+
+When adding a public page, give it a unique title, description, and canonical URL, link to it from the site, and add its canonical URL to `sitemap.xml`. Keep structured data consistent with visible content. The sitemap intentionally omits `lastmod` because there is no automated process to maintain it accurately.
+
+To track indexing, verify the domain in [Google Search Console](https://search.google.com/search-console) and submit `https://vorterlune.com/sitemap.xml`. Site files alone do not verify ownership or submit the sitemap to a Search Console account.
 
 ## Accessibility and motion
 
