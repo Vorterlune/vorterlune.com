@@ -17,7 +17,7 @@ Open <http://localhost:4173>. There is no build step or runtime dependency.
 - `index.html`: page content, project details, and metadata.
 - `styles.css`: responsive styling, project interface previews, and animations.
 - `script.js`: stars, motion preferences, subtle pointer parallax, and accessible project dialogs.
-- `assets/`: supplied designer logos, self-hosted fonts, and the hero illustration.
+- `assets/`: supplied designer logos, self-hosted fonts, and studio illustrations.
 - `robots.txt` and `sitemap.xml`: crawler access and the canonical page inventory.
 
 The project previews are HTML/CSS interpretations of the supplied reference. Project cards open descriptions because the project repositories are not public. The GitHub links point to the Vorterlune organization.
@@ -40,7 +40,7 @@ Navigation and project details work with a keyboard. Native dialogs support Esca
 
 ## Artwork
 
-The original designer SVG geometry and colors are preserved, with empty artboard space removed. The hero illustration was created with the built-in image-generation tool and encoded as WebP for delivery. The generation brief is recorded in `assets/ARTWORK.md`.
+The original designer SVG geometry and colors are preserved, with empty artboard space removed. The hero is an arched night-sky window built with CSS and inline SVG, with twinkling stars, shooting stars, a floating crescent moon, and a distant skyline. Its frame stays still while the sky responds subtly to the pointer. The original studio illustration remains the social sharing image; its generation brief is recorded in `assets/ARTWORK.md`.
 
 The Studio section includes a philosophy panel with a separate night-studio illustration, `assets/studio-philosophy.webp`. It loads lazily, and its heading, copy, and motto remain accessible HTML. Its generation prompt is also recorded in `assets/ARTWORK.md`.
 

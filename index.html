@@ -57,13 +57,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link
-      rel="preload"
-      href="./assets/studio-night.webp"
-      as="image"
-      fetchpriority="high"
-    />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=night-window" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -88,7 +82,7 @@
         ]
       }
     </script>
-    <script src="./script.js" defer></script>
+    <script src="./script.js?v=night-window" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -117,23 +111,6 @@
 
       <main id="main">
         <section class="hero" aria-labelledby="hero-title">
-          <div class="hero-scene" aria-hidden="true">
-            <img
-              class="hero-art"
-              src="./assets/studio-night.webp"
-              alt=""
-              width="1254"
-              height="1254"
-              fetchpriority="high"
-            />
-            <div class="starfield"></div>
-            <span class="shooting-star shooting-star-one"></span>
-            <span class="shooting-star shooting-star-two"></span>
-          </div>
-          <div class="orbit orbit-top" aria-hidden="true">
-            <span class="sparkle sparkle-large">✦</span
-            ><span class="sparkle sparkle-small">✦</span>
-          </div>
           <div class="hero-copy">
             <p class="eyebrow">
               <span class="copy-wide"
@@ -160,8 +137,65 @@
             </div>
             <p class="hero-signoff">Independent. Curious. Open source.</p>
           </div>
-          <div class="orbit orbit-bottom" aria-hidden="true">
-            <span class="sparkle">✦</span>
+          <div class="hero-scene" aria-hidden="true">
+            <div class="night-window">
+              <div class="window-pane">
+                <div class="night-sky">
+                  <div class="starfield"></div>
+                  <span class="shooting-star shooting-star-one"></span>
+                  <span class="shooting-star shooting-star-two"></span>
+                  <div class="moon">
+                    <span class="moon-glow"></span>
+                    <svg viewBox="0 0 110 110" focusable="false">
+                      <defs>
+                        <linearGradient id="moonlight" x2="0.8" y2="1">
+                          <stop stop-color="#fffdf0" />
+                          <stop offset="1" stop-color="#f3d99d" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        d="M68 9C83 39 59 72 28 67C40 87 65 91 84 72C106 49 95 21 68 9Z"
+                        fill="url(#moonlight)"
+                      />
+                    </svg>
+                  </div>
+                  <div class="night-cloud night-cloud-one"></div>
+                  <div class="night-cloud night-cloud-two"></div>
+                  <svg
+                    class="night-city"
+                    viewBox="0 0 480 210"
+                    preserveAspectRatio="xMidYMax slice"
+                    focusable="false"
+                  >
+                    <path
+                      d="M0 114L36 99L67 108L110 84L151 106L189 94L228 110L273 87L316 101L355 77L390 92L437 80L480 104V210H0Z"
+                      fill="#29395c"
+                    />
+                    <path
+                      d="M0 135H18V110H37V94L54 80L71 94V126H91V116H108V96H116V80H125V96H136V140H153V113H172V104H193V126H207V101H223V87H228V67H232V87H238V101H254V122H272V134H287V114H311V99H334V131H353V101L370 87L387 101V121H409V111H422V86H429V61H433V86H440V111H453V128H480V210H0Z"
+                      fill="#152440"
+                    />
+                    <path
+                      d="M0 164H28V150H54V164H79V140H102V151H124V173H145V148L168 133L191 148V164H214V147H242V167H258V144L281 126L304 144V157H330V148H350V171H374V143H404V159H431V146H458V155H480V210H0Z"
+                      fill="#0c182e"
+                    />
+                    <g fill="#e9c78d" opacity=".75">
+                      <path
+                        d="M47 102h3v5h-3zm11 0h3v5h-3zm-11 13h3v5h-3zm71-8h3v5h-3zm111 5h3v5h-3zm-9 12h3v5h-3zm19 0h3v5h-3zm79-13h3v5h-3zm10 12h3v5h-3zm37-16h3v5h-3zm11 0h3v5h-3zm49 13h3v5h-3z"
+                      />
+                      <path
+                        d="M86 156h4v6h-4zm78-3h4v6h-4zm12 0h4v6h-4zm-12 14h4v6h-4zm63-9h4v6h-4zm45-10h4v6h-4zm12 0h4v6h-4zm0 14h4v6h-4zm99-9h4v6h-4zm12 13h4v6h-4zm45-6h4v6h-4z"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                <span class="window-reflection"></span>
+                <span class="window-mullion window-mullion-vertical"></span>
+                <span class="window-mullion window-mullion-horizontal"></span>
+              </div>
+              <span class="window-sill"></span>
+            </div>
+            <p class="window-caption"><span></span> A little after hours.</p>
           </div>
         </section>
 
@@ -273,7 +307,9 @@
                     <div class="window-dots"><i></i><i></i><i></i></div>
                     <span class="notes-tool tool-active">
                       <svg class="notes-icon" viewBox="0 0 24 24">
-                        <path d="m15 5 4 4M4 20l5-1L20 8a2.8 2.8 0 0 0-4-4L5 15l-1 5Z" />
+                        <path
+                          d="m15 5 4 4M4 20l5-1L20 8a2.8 2.8 0 0 0-4-4L5 15l-1 5Z"
+                        />
                       </svg>
                     </span>
                     <span class="notes-tool">

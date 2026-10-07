@@ -15,12 +15,12 @@ function random() {
 }
 
 const stars = document.createDocumentFragment();
-for (let index = 0; index < 32; index += 1) {
+for (let index = 0; index < 48; index += 1) {
   const star = document.createElement("span");
   star.className = index % 7 === 0 ? "star cross" : "star";
-  star.style.left = `${52 + random() * 40}%`;
-  star.style.top = `${4 + random() * 39}%`;
-  star.style.setProperty("--size", `${1 + random() * 1.7}px`);
+  star.style.left = `${5 + random() * 90}%`;
+  star.style.top = `${5 + random() * 70}%`;
+  star.style.setProperty("--size", `${1 + random() * 1.3}px`);
   star.style.setProperty("--duration", `${3 + random() * 5}s`);
   star.style.setProperty("--delay", `${-random() * 8}s`);
   stars.append(star);
