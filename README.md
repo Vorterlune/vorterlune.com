@@ -39,7 +39,7 @@ Below 768px, navigation uses a hamburger disclosure with large tap targets. It c
 
 The mobile hero centers its copy and places the artwork before a full-width Explore Our Work button. The secondary GitHub hero button and studio stats appear from 768px upward; GitHub remains available through navigation and the footer on phones.
 
-The footer motion control pauses animations for the current visit. Animations respect `prefers-reduced-motion` and suspend while the page is hidden or artwork is offscreen. This includes the floating cards, spinning vortex, orbiting planets, and their counterrotation. Decorative artwork is hidden from assistive technology; meaningful content, headings, logos, and buttons remain separate HTML.
+The footer motion control pauses animations for the current visit. Animations respect `prefers-reduced-motion` and suspend while the page is hidden or artwork is offscreen. This includes the floating astronaut, interface windows, code and light trail, staggered blinking stars, spinning vortex, orbiting planets, and their counterrotation. Decorative artwork is hidden from assistive technology; meaningful content, headings, logos, and buttons remain separate HTML.
 
 Check desktop and mobile layouts, keyboard focus, reduced-motion behavior, and JavaScript-disabled rendering after changing the design. Test at 375px, 768px, 1280px, and 1440px, plus 200% browser zoom. Run mobile and desktop Lighthouse audits to assess accessibility, SEO, and loading performance; deployed field measurements are needed to confirm Core Web Vitals.
 
@@ -59,8 +59,8 @@ To track indexing, verify the domain in [Google Search Console](https://search.g
 
 ## Artwork and fonts
 
-The supplied black-and-white designer logo geometry is preserved. The moon background and isolated transparent vortex were edited with imagegen from the supplied hero reference; the planetary horizon and a transparent cratered planet were generated separately. All use optimized responsive variants. The moon background has no baked satellite planets or orbit lines. Separate textured planets follow CSS orbits lasting 900, 1200, 1500, and 1800 seconds, with counterrotation keeping their lighting direction fixed. The same planet artwork supplies the small moons on the cards.
+The supplied black-and-white designer logo geometry is preserved. Imagegen created a moon/debris background and separate transparent astronaut and vortex from the supplied astronaut hero reference. All use optimized responsive WebP variants with preserved alpha. Separate textured planets follow CSS orbits lasting 900, 1200, 1500, and 1800 seconds, with counterrotation keeping their lighting direction fixed.
 
-The three decorative glass panels are real HTML and CSS, floating independently in front of the moon while the separate vortex layer rotates gently. Typography, branding, links, and buttons remain real HTML. The sharing image retains the earlier static composition. Generation details are recorded in `assets/ARTWORK.md`.
+The two decorative interface windows and loose code are real HTML and CSS, floating independently behind the astronaut while the vortex rotates over 260 seconds. Ten stars blink gently at staggered intervals, and an SVG light trail follows the astronaut’s gesture. Typography, branding, links, and buttons remain real HTML. The sharing image retains the earlier static composition. Generation details and exact prompts are recorded in `assets/ARTWORK.md`.
 
 Inter is self-hosted. Font license files are retained in `assets/`.

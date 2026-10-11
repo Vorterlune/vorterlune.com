@@ -1,3 +1,73 @@
+# Astronaut hero artwork
+
+The current hero matches the astronaut reference with a static moon/debris plate, transparent floating astronaut and rotating luminous vortex, two HTML/CSS interface windows, floating HTML code, SVG light trails, ten staggered twinkling stars, and slowly orbiting textured planets. The real supplied logo is used in the app window and as a backpack patch. The entire decorative scene is hidden from assistive technology. All animated elements participate in pause, reduced-motion and offscreen/hidden-page handling.
+
+Current new assets: `astronaut-moon-{768,1254}.webp` (square RGB); `astronaut-float-600.webp` (480×600 RGBA) and `astronaut-float-1000.webp` (800×1000 RGBA); `astronaut-vortex-{640,1000}.webp` (square RGBA). The final vortex uses the focused refinement recorded below, not the earlier trial. Sharp performed responsive resizing and WebP encoding only; alpha is preserved. Original PNGs are retained at their generated paths. The horizon, planet texture, and original sharing image remain from the prior design.
+
+# Astronaut scene background
+
+Tool: built-in imagegen; opaque output, generated from the user's reference. Source: /Users/tianpok/.codex/generated_images/01a12bb5-5409-7df3-9e80-e51d78e43c52/exec-181f5dee-d560-4b33-8436-c807eb583113.png. Optimized with Sharp as 768px and 1254px WebP, quality 86, effort 6. No upscaling.
+
+## Exact prompt
+
+Use case: precise-object-edit.
+Asset type: square cinematic monochrome space background plate for a layered website hero.
+Input image 1 is a design/reference, not a finished webpage to reproduce. Recreate ONLY the right-hand space environment from this reference as a square 1536x1536 composition. Remove ALL webpage copy, header, logo, navigation, buttons, metrics, interface windows, code lettering, astronaut and tether. The astronaut and windows will be separate moving HTML/image layers.
+Keep the reference's giant highly detailed cratered crescent moon, lit along its upper-left edge, with the illuminated left lunar limb sweeping from x=52%,y=7% down to x=14%,y=55% and curling toward x=49%,y=83%. Pitch-black moon shadow on its right. Moon should occupy about 75% of square. Sparse pinprick white stars and fine faint orbital arcs across black space. Small rough monochrome asteroids drifting around the lower-left and bottom of the moon, and two large softly out-of-focus dark foreground rocks partially cropped off the very bottom corners, adding the reference's depth. Keep centre-right mostly pitch black because a luminous vortex, astronaut, and app windows will be added there separately.
+Do NOT include the bright white vortex, glowing light ribbons, or trails: these are separate animated layers. No planets or circular satellite spheres: those will also be added separately. Premium photoreal 3D, detailed dark lunar craters, neutral grayscale only, deep true black outer background especially all canvas edges so it blends into a black website. Faithfully match the reference's dramatic rim lighting and contrast. No text, no typography, no human, no astronaut, no cards, no UI, no logos, no watermark.
+
+
+# Astronaut float asset — 2026-10-12
+
+Generated using the built-in image_gen tool (background-extraction edit, transparent_background: true). Reference: /var/folders/_9/pn95p16944d7s7mn2t16l17c0000gn/T/codex-clipboard-8d85872b-fe1c-4f8c-b0b1-ed4c0c812b99.png.
+
+Original generated PNG: /Users/tianpok/.codex/generated_images/01a12c1c-2ebc-7ac0-b409-eebf236a17dd/exec-3a115dd8-f763-4c71-b692-5754a8980d00.png (1122 × 1402, RGBA).
+
+## Exact prompt
+
+Use case: background-extraction.
+Asset type: premium cinematic website hero, isolated animated astronaut layer.
+Input image: edit target. Extract and faithfully reconstruct ONLY the astronaut in the right half of this supplied website reference, preserving the pose, perspective, orientation, and lighting.
+Primary request: output a single full-body photoreal monochrome astronaut cutout on a genuinely transparent alpha background. The astronaut is seen from three-quarter BACK, floating diagonally from boots at the lower-left toward helmet at upper-middle and RIGHT arm reaching diagonally up-right. The bulky rectangular backpack is prominent, helmet glossy black with silver rim, suit dark graphite with realistic seams and folds, boot soles visible closest to the viewer at bottom-left. Match the reference's relaxed floating pose and two normal human arms and legs.
+Framing: astronaut and one short curved tether only, isolated with a small transparent margin on all sides, approximately portrait 4:5 composition. Entire gloved right hand, helmet and both boots fully in frame. Upper right hand clearly reaching outward with an extended index finger, same as reference. Left arm remains naturally tucked by torso. Keep astronaut scale large within the canvas.
+Lighting: cinematic white rim light around helmet, right shoulder, reaching glove and boots, deep black shadows with readable suit texture. Strict black, gray and white palette.
+Constraints: REMOVE ALL website copy, logos and insignia from the astronaut. Blank backpack panels. NO moon, planets, rings, vortex, stars, rocks, light trails, smoke, cards, UI or any scenery. NO ground plane, no shadows outside the astronaut. Genuine alpha transparency, not black, gray or checkerboard pixels. This is a transparent foreground cutout, not a whole website or background scene.
+
+## Production outputs
+
+- assets/astronaut-float-600.webp — 480 × 600, 48,284 bytes.
+- assets/astronaut-float-1000.webp — 800 × 1000, 105,518 bytes.
+
+Resized and encoded with sharp: fit inside, no enlargement, WebP quality 85, alphaQuality 100, effort 6. Both preserve actual alpha; source alpha spans 0–255. No manual compositing or background removal. Original preserved at generated path.
+
+## Visual validation
+
+Full subject preserved: two boots extending to lower-left, glossy helmet above large blank backpack, right arm reaches upper-right with pointing finger, short curved tether at left. Dark graphite suit and silver rim light match reference. No moon, stars, UI, rocks, logo or text baked in. Clean isolated silhouette gives independent CSS translation/rotation. Source lighting has bright cutout rim as expected against black hero. Transparent top margin approximately 7%; account for this when positioning.
+
+
+
+# Production vortex refinement
+
+Built-in imagegen, transparent_background: true, 2026-10-12. Edit target candidate one, with original user image as reference.
+
+Source: /Users/tianpok/.codex/generated_images/01a12c1c-2ebc-7ac0-b409-eebf236a17dd/exec-007ff327-3efa-4ca4-8404-338d5da0a316.png
+
+Production outputs: `assets/astronaut-vortex-640.webp` (640×640, 149,958 bytes) and `assets/astronaut-vortex-1000.webp` (1000×1000, 352,940 bytes). Sharp resizing and WebP quality 85, alphaQuality 100, effort 6 preserve genuine transparency. This refinement is the selected production vortex.
+
+## Exact prompt
+
+Use case: precise-object-edit.
+Input 1: edit target, a transparent luminous curved light ribbon with open ring and S-shaped tail. Input 2: style and fidelity reference, the silver vortex behind the astronaut in the website.
+Make one focused refinement of INPUT 1 while preserving its recognizable open halo silhouette and sweeping S-shaped tail. Replace the broad smooth gray milky fill of the ribbon with HUNDREDS of extremely fine textured silver and smoky white luminous striations, with real transparent/black negative gaps between the streaks. Match the reference's flowing high-contrast black/silver light trail texture: one brilliant thick curved WHITE INNER EDGE HIGHLIGHT from upper-left through upper-center, while the adjacent darker body comprises richly layered fine silver wisps and sharp hairline filaments, alternating transparent channels. The ring must still feel substantial and cinematic, not ten sparse wire ropes. Distinctive luminous core arc plus many finer irregular smoky streaks. No evenly filled gray tube, no blanket fog, no matte gray surface, no opaque gray donut. The brightest edge is about 2% of the total image width; the overall structured band around it is wider but consists mostly of transparent gaps and fine streaks.
+Keep central open hole about 40% of image width, entirely transparent. Keep an S-shaped silver tail sweeping down and right, tapering elegantly and fully contained. Center the envelope on a square canvas with about 10% fully transparent margins on all four sides.
+Strict monochrome, white highlights and silver details fading to actual alpha. Genuine transparent background and center. NO astronaut, moon, planets, stars, rocks, text, UI, logos, symbols or any other objects. This is ONLY the standalone animated light-ribbon layer, not the entire scene.
+
+
+
+---
+
+# Prior monochrome artwork records
+
 # Monochrome space artwork
 
 The monochrome scenes were generated with the built-in imagegen tool for the Vorterlune redesign. The current hero separates the moon background, transparent flowing vortex, orbiting textured planets, and three independently floating HTML/CSS glass panels. Imagegen removed the former baked satellite planets and orbit lines from the moon background so they can move separately. Panel surfaces, typography, branding, and orbit paths are HTML/CSS. The horizon contains no text, branding, or interface imagery. Outputs were visually inspected and resized with Lanczos. The current moon and vortex layers are encoded as WebP at quality 86, the small planet at quality 88, and the horizon at quality 84. No third-party stock artwork is used.

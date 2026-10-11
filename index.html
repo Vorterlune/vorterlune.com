@@ -58,7 +58,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="./styles.css?v=monochrome" />
+    <link rel="stylesheet" href="./styles.css?v=astronaut" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -235,27 +235,26 @@
           <div class="hero-art" data-motion-scene aria-hidden="true">
             <div class="hero-composition">
               <img
-                src="./assets/hero-moon-clean-1600.webp"
+                src="./assets/astronaut-moon-1254.webp"
                 srcset="
-                  ./assets/hero-moon-clean-768.webp   768w,
-                  ./assets/hero-moon-clean-1200.webp 1200w,
-                  ./assets/hero-moon-clean-1600.webp 1600w
+                  ./assets/astronaut-moon-768.webp   768w,
+                  ./assets/astronaut-moon-1254.webp 1254w
                 "
-                sizes="(min-width: 1710px) 1010px, (min-width: 1024px) 59vw, (min-width: 640px) 760px, 540px"
-                width="1600"
-                height="1600"
+                sizes="(min-width: 1710px) 1112px, (min-width: 1024px) 65vw, (min-width: 640px) 680px, 108vw"
+                width="1254"
+                height="1254"
                 fetchpriority="high"
                 decoding="async"
                 alt=""
                 class="hero-cosmos"
               />
               <img
-                src="./assets/hero-vortex-fine-1000.webp"
+                src="./assets/astronaut-vortex-1000.webp"
                 srcset="
-                  ./assets/hero-vortex-fine-640.webp   640w,
-                  ./assets/hero-vortex-fine-1000.webp 1000w
+                  ./assets/astronaut-vortex-640.webp   640w,
+                  ./assets/astronaut-vortex-1000.webp 1000w
                 "
-                sizes="(min-width: 1710px) 687px, (min-width: 1024px) 40vw, (min-width: 640px) 517px, 367px"
+                sizes="(min-width: 1710px) 778px, (min-width: 1024px) 46vw, (min-width: 640px) 476px, 76vw"
                 width="1000"
                 height="1000"
                 decoding="async"
@@ -266,7 +265,29 @@
               <div class="orbit-guide orbit-guide--outer"></div>
               <div class="orbit-guide orbit-guide--middle"></div>
               <div class="orbit-guide orbit-guide--inner"></div>
-              <span class="orbit-star" data-motion-layer></span>
+              <span class="orbit-star" style="--star-x: 7%; --star-y: 18%; --star-delay: -2s" data-motion-layer></span>
+              <span class="orbit-star" style="--star-x: 14%; --star-y: 47%; --star-delay: -5s; --star-period: 9s" data-motion-layer></span>
+              <span class="orbit-star" style="--star-x: 28%; --star-y: 15%; --star-delay: -4s; --star-size: 2cqi" data-motion-layer></span>
+              <span class="orbit-star" style="--star-x: 33%; --star-y: 73%; --star-delay: -7s" data-motion-layer></span>
+              <span class="orbit-star" style="--star-x: 47%; --star-y: 9%; --star-delay: -1s; --star-size: 1.6cqi" data-motion-layer></span>
+              <span class="orbit-star" style="--star-x: 55%; --star-y: 83%; --star-delay: -3s; --star-period: 11s" data-motion-layer></span>
+              <span class="orbit-star" style="--star-x: 74%; --star-y: 17%; --star-delay: -6s; --star-size: 2cqi" data-motion-layer></span>
+              <span class="orbit-star" style="--star-x: 88%; --star-y: 48%; --star-delay: -4s; --star-period: 10s" data-motion-layer></span>
+              <span class="orbit-star" style="--star-x: 92%; --star-y: 67%; --star-delay: -1s" data-motion-layer></span>
+              <span class="orbit-star" style="--star-x: 82%; --star-y: 77%; --star-delay: -8s; --star-size: 2cqi" data-motion-layer></span>
+              <div class="scene-light-trail" data-motion-layer>
+                <svg viewBox="0 0 1000 1000" fill="none">
+                  <defs>
+                    <filter id="trail-glow"><feGaussianBlur stdDeviation="5" /></filter>
+                    <linearGradient id="trail-silver" x1="670" y1="350" x2="885" y2="145" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#fff" /><stop offset=".65" stop-color="#eee" /><stop offset="1" stop-color="#fff" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path class="trail-halo" d="M668 361C730 292 898 323 920 225C936 157 824 141 751 151" stroke="url(#trail-silver)" stroke-width="10" filter="url(#trail-glow)" />
+                  <path d="M668 361C730 292 898 323 920 225C936 157 824 141 751 151" stroke="url(#trail-silver)" stroke-width="2" />
+                  <path class="trail-sparks" data-motion-layer d="M667 365C747 290 914 329 926 223C936 153 823 136 749 148" stroke="url(#trail-silver)" stroke-width="4" stroke-linecap="round" stroke-dasharray=".2 13 .2 27 .2 8" />
+                </svg>
+              </div>
               <div class="orbit-carrier orbit-carrier--one" data-motion-layer>
                 <div class="orbit-position">
                   <img
@@ -319,64 +340,67 @@
                   />
                 </div>
               </div>
-              <div class="scene-card scene-card--main" data-motion-layer>
-                <div class="scene-card-surface">
-                  <img
-                    src="./assets/logo-white.png"
-                    width="869"
-                    height="202"
-                    alt=""
-                    class="scene-wordmark"
-                  />
-                  <div class="scene-manifesto font-mono text-neutral-300">
-                    Build<br />Experiment<br />Improve<br />Repeat<span
-                      class="scene-dash"
-                    ></span>
-                  </div>
-                </div>
-              </div>
-              <div class="scene-card scene-card--ideas" data-motion-layer>
-                <div class="scene-card-surface">
-                  <div class="scene-ideas font-mono text-neutral-300">
-                    Ideas<br />Tools<br />People<br />Progress<span
-                      class="scene-dash"
-                    ></span>
-                  </div>
-                  <img
-                    class="card-crescent"
-                    src="./assets/orbit-planet-128.webp"
-                    width="128"
-                    height="128"
-                    alt=""
-                    decoding="async"
-                  />
-                </div>
-              </div>
-              <div class="scene-card scene-card--code" data-motion-layer>
+              <div class="scene-card scene-card--workspace" data-motion-layer>
                 <div class="scene-card-surface">
                   <div class="card-window-bar"><i></i><i></i><i></i></div>
-                  <div class="scene-code font-mono text-neutral-400">
-                    <span class="text-neutral-500"
-                      >// A more capable tomorrow</span
-                    ><br />const ideas = new Possibility();<br />while
-                    (curiosity) {<br />&nbsp;&nbsp;create();<br />&nbsp;&nbsp;improve();<br />&nbsp;&nbsp;share();<br />}<span
-                      class="scene-dash"
-                    ></span>
+                  <div class="workspace-layout">
+                    <div class="workspace-sidebar">
+                      <img src="./assets/logo-white.png" width="869" height="202" alt="" class="workspace-wordmark" />
+                      <div class="workspace-item workspace-item--active"><svg class="icon"><use href="#icon-note" /></svg>Ideas</div>
+                      <div class="workspace-item"><svg class="icon"><use href="#icon-note" /></svg>Notes</div>
+                      <div class="workspace-item"><svg class="icon"><use href="#icon-cube" /></svg>Projects</div>
+                      <div class="workspace-item"><svg class="icon"><use href="#icon-layers" /></svg>Components</div>
+                      <div class="workspace-item"><svg class="icon"><use href="#icon-code" /></svg>Sync</div>
+                      <div class="workspace-item"><svg class="icon"><use href="#icon-cube" /></svg>Settings</div>
+                    </div>
+                    <div class="workspace-content">
+                      <p>Ideas</p>
+                      <div><svg class="icon"><use href="#icon-note" /></svg>Local-first architecture</div>
+                      <div><svg class="icon"><use href="#icon-note" /></svg>Design explorations</div>
+                      <div><svg class="icon"><use href="#icon-note" /></svg>Developer tools</div>
+                      <div><svg class="icon"><use href="#icon-note" /></svg>A brighter tomorrow</div>
+                    </div>
                   </div>
-                  <img
-                    class="card-crescent"
-                    src="./assets/orbit-planet-128.webp"
-                    width="128"
-                    height="128"
-                    alt=""
-                    decoding="async"
-                  />
                 </div>
+              </div>
+              <div class="scene-floating-code" data-motion-layer>
+                <div class="floating-code-surface font-mono">
+                  const ideas = new Possibility();<br />
+                  while (curiosity) {<br />
+                  &nbsp;&nbsp;create();<br />
+                  &nbsp;&nbsp;improve();<br />
+                  &nbsp;&nbsp;share();<br />
+                  }<span class="scene-dash"></span>
+                </div>
+              </div>
+              <div class="scene-card scene-card--editor" data-motion-layer>
+                <div class="scene-card-surface">
+                  <div class="card-window-bar"><i></i><i></i><i></i><span>studio.ts</span><b>+</b></div>
+                  <div class="editor-content font-mono">
+                    <div class="editor-line-numbers">1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9</div>
+                    <div class="editor-code">
+                      <span>// A more capable tomorrow</span><br /><br />
+                      const studio = new Vorterlune({<br />
+                      &nbsp;&nbsp;ideas: true,<br />
+                      &nbsp;&nbsp;people: 'curious',<br />
+                      &nbsp;&nbsp;tools: ['react', 'native'],<br />
+                      &nbsp;&nbsp;purpose: 'brighter-tomorrows'<br />
+                      });<span class="scene-dash"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="scene-astronaut" data-motion-layer>
+                <img src="./assets/astronaut-float-1000.webp"
+                  srcset="./assets/astronaut-float-600.webp 480w, ./assets/astronaut-float-1000.webp 800w"
+                  sizes="(min-width: 1710px) 489px, (min-width: 1024px) 29vw, (min-width: 640px) 299px, 48vw"
+                  width="800" height="1000" alt="" decoding="async" />
+                <img class="astronaut-mark" src="./assets/favicon.svg" width="64" height="64" alt="" />
               </div>
             </div>
           </div>
           <p class="scene-motto" aria-hidden="true">
-            Small<br />ideas.<br />Big<br />tomorrows.<span
+            Small<br />ideas.<br />Brighter<br />tomorrows.<span
               class="scene-dash"
             ></span>
           </p>
