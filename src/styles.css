@@ -1,0 +1,449 @@
+@import "tailwindcss" source(none);
+@source "../index.html";
+@source "../script.js";
+
+@font-face {
+  font-family: Inter;
+  src: url("./assets/inter-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --color-ink: #050505;
+  --color-surface: #0c0c0d;
+  --color-line: #29292b;
+  --color-silver: #b8b8bc;
+  --color-muted: #929297;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+  body {
+    min-width: 320px;
+  }
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: default;
+  }
+  :focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 6px;
+  }
+  dialog {
+    color: inherit;
+  }
+}
+
+@layer components {
+  .icon {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.7;
+    letter-spacing: 0.23em;
+    text-transform: uppercase;
+    color: #ababaf;
+  }
+  .skip-link {
+    position: fixed;
+    z-index: 100;
+    top: 12px;
+    left: 12px;
+    padding: 12px 20px;
+    border-radius: 6px;
+    background: white;
+    color: black;
+    transform: translateY(-180%);
+  }
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+  .project-dialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(540px, calc(100% - 32px));
+    max-height: calc(100dvh - 48px);
+    overflow-y: auto;
+    padding: 44px 36px 32px;
+    border: 1px solid #444;
+    border-radius: 16px;
+    background: #101011;
+    box-shadow: 0 24px 100px #0009;
+  }
+  .project-dialog::backdrop {
+    background: #000c;
+    backdrop-filter: blur(8px);
+  }
+  .dialog-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    color: #bbb;
+    font-size: 28px;
+  }
+  .dialog-close:hover {
+    background: #ffffff0c;
+    color: white;
+  }
+}
+
+/* The scene is decorative. Layout and content remain Tailwind utilities. */
+.hero {
+  min-height: 740px;
+  border-bottom: 1px solid #202022;
+}
+.hero-art {
+  position: absolute;
+  z-index: 0;
+  width: 950px;
+  height: 735px;
+  top: 0;
+  right: -155px;
+  pointer-events: none;
+  transform: translate(var(--scene-x, 0px), var(--scene-y, 0px));
+}
+.hero-cosmos {
+  position: absolute;
+  width: 1100px;
+  max-width: none;
+  height: 735px;
+  top: -5px;
+  left: -85px;
+  object-fit: cover;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 24%,
+    #000 85%,
+    transparent 100%
+  );
+}
+.hero-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse, #fff1, transparent 65%);
+}
+.hero-orbit {
+  position: absolute;
+  width: 830px;
+  height: 732px;
+  top: 0;
+  left: 12px;
+  overflow: visible;
+}
+.hero-orbit ellipse {
+  fill: none;
+  stroke: #a0a0a0;
+  stroke-opacity: 0.24;
+  stroke-width: 1;
+}
+.hero-orbit circle {
+  fill: #bababa;
+  stroke: #f5f5f5;
+  stroke-width: 1.8;
+  filter: drop-shadow(0 0 6px #fff8);
+}
+.scene-card {
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid #8a8a8a;
+  border-bottom-color: #3c3c3c;
+  border-right-color: #4b4b4b;
+  border-radius: 14px;
+  background: linear-gradient(130deg, #242424ef, #0a0a0af5 42%, #070707ed);
+  box-shadow:
+    0 16px 60px #0009,
+    inset 0 1px 1px #fff3;
+}
+.scene-card-main {
+  z-index: 2;
+  top: 178px;
+  left: 345px;
+  width: 300px;
+  height: 345px;
+  padding: 29px;
+  rotate: -6deg;
+  animation: float-main 13s ease-in-out infinite;
+}
+.card-vortex {
+  position: absolute;
+  right: -93px;
+  bottom: -10px;
+  width: 260px;
+  height: 260px;
+  border: 1px solid #fff5;
+  border-radius: 50%;
+  box-shadow:
+    -10px 0 15px -11px white,
+    -20px 0 0 -6px #fff1,
+    -30px 0 0 -13px #fff2,
+    -46px 0 0 -27px #fff3,
+    inset 4px 0 16px #fff3;
+  transform: rotate(-35deg) scaleX(0.7);
+}
+.card-vortex::after {
+  content: "";
+  position: absolute;
+  inset: 39px;
+  border-radius: 50%;
+  border-left: 2px solid #ddd;
+  box-shadow:
+    -8px 0 18px -4px #ccc7,
+    inset 8px 0 18px -5px #ddd7;
+}
+.scene-card-ideas {
+  z-index: 4;
+  top: 452px;
+  left: 242px;
+  width: 193px;
+  padding: 26px 27px;
+  rotate: 10deg;
+  animation: float-small 11s ease-in-out infinite;
+}
+.small-moon {
+  position: absolute;
+  right: 18px;
+  top: 69px;
+  width: 29px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: -6px 2px 2px 0 #ddd;
+  rotate: -12deg;
+  filter: drop-shadow(-3px 0 5px #fff5);
+}
+.scene-card-code {
+  z-index: 5;
+  top: 446px;
+  left: 460px;
+  width: 270px;
+  rotate: 7deg;
+  animation: float-small 15s -3s ease-in-out infinite;
+}
+.scene-motto {
+  position: absolute;
+  z-index: 6;
+  right: 114px;
+  top: 605px;
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 1.9;
+  letter-spacing: 0.23em;
+  text-transform: uppercase;
+  color: #aaa;
+}
+.connect {
+  min-height: 330px;
+}
+.horizon-art {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: -1;
+  width: 100%;
+  min-width: 1100px;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transform: translateX(-50%);
+  mask-image: linear-gradient(transparent, #000 8%, #000 35%, transparent 94%);
+  opacity: 0.85;
+}
+.connect::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 10%, #05050555 50%, #050505 100%);
+}
+.motion-paused .scene-card {
+  animation-play-state: paused;
+}
+@keyframes float-main {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+@keyframes float-small {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-art {
+    right: -112px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hero {
+    min-height: 670px;
+  }
+  .hero-art {
+    right: -266px;
+    top: -12px;
+    scale: 0.9;
+    transform-origin: top right;
+  }
+  .hero-copy {
+    max-width: 625px;
+  }
+  .hero-copy > p:not(.eyebrow) {
+    max-width: 440px;
+  }
+}
+@media (max-width: 1023px) {
+  .hero {
+    min-height: 0;
+  }
+  .hero-art {
+    position: relative;
+    margin: -22px auto 0;
+    top: 0;
+    right: auto;
+    left: 50%;
+    width: 850px;
+    height: 620px;
+    transform: translateX(-50%);
+  }
+  .hero-cosmos {
+    width: 1050px;
+    height: 700px;
+    top: -40px;
+    left: -120px;
+  }
+  .hero-orbit {
+    top: -65px;
+    left: -35px;
+  }
+  .scene-card-main {
+    top: 106px;
+    left: 280px;
+  }
+  .scene-card-ideas {
+    top: 364px;
+    left: 172px;
+  }
+  .scene-card-code {
+    top: 372px;
+    left: 430px;
+  }
+  .scene-motto {
+    top: 525px;
+    right: 90px;
+  }
+}
+@media (max-width: 639px) {
+  .eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.2em;
+  }
+  .hero-art {
+    width: 640px;
+    height: 455px;
+    margin-top: 10px;
+  }
+  .hero-cosmos {
+    width: 740px;
+    height: 493px;
+    top: -8px;
+    left: -59px;
+  }
+  .hero-orbit {
+    width: 610px;
+    height: 535px;
+    top: -35px;
+    left: 5px;
+    opacity: 0.6;
+  }
+  .scene-card-main {
+    width: 235px;
+    height: 260px;
+    top: 94px;
+    left: 220px;
+    padding: 22px;
+  }
+  .scene-card-main > div:not(.card-vortex) {
+    margin-top: 24px;
+    font-size: 15px;
+  }
+  .scene-card-main > img {
+    width: 127px;
+  }
+  .card-vortex {
+    width: 210px;
+    height: 210px;
+    right: -96px;
+    bottom: -28px;
+  }
+  .scene-card-ideas {
+    top: 270px;
+    left: 138px;
+    width: 153px;
+    padding: 19px 23px;
+  }
+  .scene-card-ideas p {
+    font-size: 14px;
+  }
+  .small-moon {
+    top: 52px;
+    width: 23px;
+    height: 32px;
+  }
+  .scene-card-code,
+  .scene-motto {
+    display: none;
+  }
+  .project-dialog {
+    padding: 42px 24px 28px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .hero-art {
+    --scene-x: 0px !important;
+    --scene-y: 0px !important;
+  }
+}

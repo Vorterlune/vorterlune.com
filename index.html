@@ -1,12 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="motion-paused">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#fbfcff" />
+    <meta name="theme-color" content="#050505" />
+    <meta name="color-scheme" content="dark" />
+    <title>Vorterlune — Thoughtful Software &amp; Open Source</title>
     <meta
       name="description"
-      content="Explore Vorterlune, an independent software studio, and its projects: Idiom for React Native UI and Notes, a local-first handwriting experiment."
+      content="Vorterlune is an independent software studio exploring React Native UI and local-first tools for connected ideas. Discover Idiom and Notes."
     />
     <link rel="canonical" href="https://vorterlune.com/" />
     <meta property="og:type" content="website" />
@@ -14,41 +16,40 @@
     <meta property="og:url" content="https://vorterlune.com/" />
     <meta
       property="og:title"
-      content="Vorterlune — Independent Software Studio &amp; Projects"
+      content="Vorterlune — Thoughtful Software &amp; Open Source"
     />
     <meta
       property="og:description"
-      content="Explore Vorterlune, an independent software studio, and its projects: Idiom for React Native UI and Notes, a local-first handwriting experiment."
+      content="An independent software studio exploring React Native UI and local-first tools for connected ideas. Discover Idiom and Notes."
     />
     <meta
       property="og:image"
-      content="https://vorterlune.com/assets/studio-night.webp"
+      content="https://vorterlune.com/assets/social-preview.jpg"
     />
-    <meta property="og:image:type" content="image/webp" />
-    <meta property="og:image:width" content="1254" />
-    <meta property="og:image:height" content="1254" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="An illustration of a developer working in a moonlit studio."
+      content="Vorterlune. Thoughtful software, built with intent. A monochrome moon and cosmic vortex."
     />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Vorterlune — Independent Software Studio &amp; Projects"
+      content="Vorterlune — Thoughtful Software &amp; Open Source"
     />
     <meta
       name="twitter:description"
-      content="Explore Vorterlune, an independent software studio, and its projects: Idiom for React Native UI and Notes, a local-first handwriting experiment."
+      content="An independent software studio exploring React Native UI and local-first tools for connected ideas. Discover Idiom and Notes."
     />
     <meta
       name="twitter:image"
-      content="https://vorterlune.com/assets/studio-night.webp"
+      content="https://vorterlune.com/assets/social-preview.jpg"
     />
     <meta
       name="twitter:image:alt"
-      content="An illustration of a developer working in a moonlit studio."
+      content="Vorterlune. Thoughtful software, built with intent. A monochrome moon and cosmic vortex."
     />
-    <title>Vorterlune — Independent Software Studio &amp; Projects</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
     <link
       rel="preload"
@@ -57,7 +58,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="./styles.css?v=night-window" />
+    <link rel="stylesheet" href="./styles.css?v=monochrome" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -76,455 +77,564 @@
             "name": "Vorterlune",
             "url": "https://vorterlune.com/",
             "description": "An independent, one-person software studio exploring React Native UI and local-first tools for connected ideas.",
-            "logo": "https://vorterlune.com/assets/logo-stacked.svg",
+            "logo": "https://vorterlune.com/assets/organization-logo.png",
             "sameAs": ["https://github.com/Vorterlune"]
           }
         ]
       }
     </script>
-    <script src="./script.js?v=night-window" defer></script>
+    <script src="./script.js?v=monochrome" defer></script>
   </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <div class="page-shell">
-      <header class="site-header">
-        <a href="./" class="brand" aria-label="Vorterlune home"
+  <body
+    class="bg-ink font-sans text-white antialiased selection:bg-white selection:text-black"
+  >
+    <a href="#main" class="skip-link">Skip to content</a>
+    <svg
+      class="absolute size-0 overflow-hidden"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <symbol id="icon-arrow" viewBox="0 0 24 24">
+          <path d="M4 12h15m-6-6 6 6-6 6" />
+        </symbol>
+        <symbol id="icon-github" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            stroke="none"
+            d="M12 .8a11.4 11.4 0 0 0-3.6 22.22c.57.1.78-.25.78-.55v-2.12c-3.17.69-3.84-1.35-3.84-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.24 3.32.95.1-.74.4-1.24.72-1.53-2.53-.29-5.19-1.26-5.19-5.64 0-1.24.44-2.26 1.17-3.06-.12-.29-.51-1.45.11-3.02 0 0 .96-.3 3.13 1.17A10.9 10.9 0 0 1 12 6.3c.97 0 1.93.13 2.84.38 2.17-1.47 3.12-1.17 3.12-1.17.63 1.57.24 2.73.12 3.02.73.8 1.17 1.82 1.17 3.06 0 4.39-2.67 5.35-5.21 5.63.41.36.77 1.05.77 2.12v3.13c0 .31.21.66.79.55A11.4 11.4 0 0 0 12 .8Z"
+          />
+        </symbol>
+        <symbol id="icon-code" viewBox="0 0 32 32">
+          <path d="m9 9-7 7 7 7m14-14 7 7-7 7M19 4l-6 24" />
+        </symbol>
+        <symbol id="icon-cube" viewBox="0 0 32 32">
+          <path d="m16 2 13 7v14l-13 7-13-7V9Zm0 14v14M3 9l13 7 13-7" />
+        </symbol>
+        <symbol id="icon-flask" viewBox="0 0 32 32">
+          <path
+            d="M11 3h10M13 3v11L5 27a1.4 1.4 0 0 0 1.2 2h19.6a1.4 1.4 0 0 0 1.2-2l-8-13V3M10 20h12"
+          />
+        </symbol>
+        <symbol id="icon-layers" viewBox="0 0 32 32">
+          <path d="m16 3 13 7-13 7-13-7Zm-13 13 13 7 13-7M3 22l13 7 13-7" />
+        </symbol>
+        <symbol id="icon-note" viewBox="0 0 32 32">
+          <path
+            d="M19 3H7a2 2 0 0 0-2 2v22a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V11Zm0 0v8h8"
+          />
+        </symbol>
+      </defs>
+    </svg>
+
+    <header class="relative z-20 border-b border-line">
+      <div
+        class="mx-auto flex max-w-[1440px] flex-col items-start gap-6 px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-10 lg:px-16 lg:py-7"
+      >
+        <a href="./" class="shrink-0 rounded-sm" aria-label="Vorterlune home"
           ><img
-            src="./assets/logo.svg"
-            alt="vorterlune"
-            width="214"
-            height="44"
+            src="./assets/logo-white.png"
+            alt="Vorterlune"
+            width="869"
+            height="202"
+            class="h-auto w-[190px] lg:w-[226px]"
         /></a>
-        <nav aria-label="Main navigation">
-          <a href="#projects">Projects</a>
-          <a href="#about">About</a>
-          <a
-            href="https://github.com/Vorterlune"
-            target="_blank"
-            rel="noopener noreferrer"
-            >GitHub
-            <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M5 19 19 5M5 5h14v14" /></svg
-          ></a>
-        </nav>
-      </header>
-
-      <main id="main">
-        <section class="hero" aria-labelledby="hero-title">
-          <div class="hero-copy">
-            <p class="eyebrow">
-              <span class="copy-wide"
-                >Vorterlune · Independent software studio</span
-              >
-              <span class="copy-short">Independent software studio</span>
-            </p>
-            <h1 id="hero-title">
-              Late nights.<br /><span>Bright ideas.</span>
-            </h1>
-            <p class="hero-description">
-              A one-person studio turning late-night curiosity<br
-                class="desktop-break"
-              />
-              into thoughtful software. Built with care. Shared openly.
-            </p>
-            <div class="hero-actions">
-              <a class="button-primary" href="#projects"
-                >Explore projects
-                <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 19 19 5M5 5h14v14" /></svg
-              ></a>
-              <a class="text-link" href="#about">About the studio</a>
-            </div>
-            <p class="hero-signoff">Independent. Curious. Open source.</p>
-          </div>
-          <div class="hero-scene" aria-hidden="true">
-            <div class="night-window">
-              <div class="window-pane">
-                <div class="night-sky">
-                  <div class="starfield"></div>
-                  <span class="shooting-star shooting-star-one"></span>
-                  <span class="shooting-star shooting-star-two"></span>
-                  <div class="moon">
-                    <span class="moon-glow"></span>
-                    <svg viewBox="0 0 110 110" focusable="false">
-                      <defs>
-                        <linearGradient id="moonlight" x2="0.8" y2="1">
-                          <stop stop-color="#fffdf0" />
-                          <stop offset="1" stop-color="#f3d99d" />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        d="M68 9C83 39 59 72 28 67C40 87 65 91 84 72C106 49 95 21 68 9Z"
-                        fill="url(#moonlight)"
-                      />
-                    </svg>
-                  </div>
-                  <div class="night-cloud night-cloud-one"></div>
-                  <div class="night-cloud night-cloud-two"></div>
-                  <svg
-                    class="night-city"
-                    viewBox="0 0 480 210"
-                    preserveAspectRatio="xMidYMax slice"
-                    focusable="false"
-                  >
-                    <path
-                      d="M0 114L36 99L67 108L110 84L151 106L189 94L228 110L273 87L316 101L355 77L390 92L437 80L480 104V210H0Z"
-                      fill="#29395c"
-                    />
-                    <path
-                      d="M0 135H18V110H37V94L54 80L71 94V126H91V116H108V96H116V80H125V96H136V140H153V113H172V104H193V126H207V101H223V87H228V67H232V87H238V101H254V122H272V134H287V114H311V99H334V131H353V101L370 87L387 101V121H409V111H422V86H429V61H433V86H440V111H453V128H480V210H0Z"
-                      fill="#152440"
-                    />
-                    <path
-                      d="M0 164H28V150H54V164H79V140H102V151H124V173H145V148L168 133L191 148V164H214V147H242V167H258V144L281 126L304 144V157H330V148H350V171H374V143H404V159H431V146H458V155H480V210H0Z"
-                      fill="#0c182e"
-                    />
-                    <g fill="#e9c78d" opacity=".75">
-                      <path
-                        d="M47 102h3v5h-3zm11 0h3v5h-3zm-11 13h3v5h-3zm71-8h3v5h-3zm111 5h3v5h-3zm-9 12h3v5h-3zm19 0h3v5h-3zm79-13h3v5h-3zm10 12h3v5h-3zm37-16h3v5h-3zm11 0h3v5h-3zm49 13h3v5h-3z"
-                      />
-                      <path
-                        d="M86 156h4v6h-4zm78-3h4v6h-4zm12 0h4v6h-4zm-12 14h4v6h-4zm63-9h4v6h-4zm45-10h4v6h-4zm12 0h4v6h-4zm0 14h4v6h-4zm99-9h4v6h-4zm12 13h4v6h-4zm45-6h4v6h-4z"
-                      />
-                    </g>
-                  </svg>
-                </div>
-                <span class="window-reflection"></span>
-                <span class="window-mullion window-mullion-vertical"></span>
-                <span class="window-mullion window-mullion-horizontal"></span>
-              </div>
-              <span class="window-sill"></span>
-            </div>
-            <p class="window-caption"><span></span> A little after hours.</p>
-          </div>
-        </section>
-
-        <section
-          id="projects"
-          class="projects"
-          aria-labelledby="projects-title"
+        <nav
+          aria-label="Main navigation"
+          class="flex w-full flex-wrap gap-x-6 gap-y-3 text-[13px] font-medium text-silver sm:w-auto sm:gap-x-6 sm:text-sm lg:gap-x-10"
         >
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">01 / On the workbench</p>
-              <h2 id="projects-title">From curiosity to code.</h2>
-            </div>
-            <p class="section-aside">A few things taking shape.</p>
-          </div>
-          <div class="project-grid">
-            <article class="project-card">
-              <div class="project-visual idiom-visual" aria-hidden="true">
-                <span class="visual-orbit visual-orbit-one"></span
-                ><span class="visual-orbit visual-orbit-two"></span>
-                <div class="phone-preview">
-                  <div class="phone-status">
-                    <span>9:41</span>
-                    <span class="phone-signal">
-                      <svg class="signal-bars" viewBox="0 0 16 10">
-                        <rect x="0" y="7" width="3" height="3" rx="0.5" />
-                        <rect x="4" y="5" width="3" height="5" rx="0.5" />
-                        <rect x="8" y="2.5" width="3" height="7.5" rx="0.5" />
-                        <rect x="12" y="0" width="3" height="10" rx="0.5" />
-                      </svg>
-                      <span class="battery"></span>
-                    </span>
-                  </div>
-                  <div class="phone-title">Settings</div>
-                  <div class="settings-list">
-                    <div class="settings-row">
-                      <span>Appearance</span>
-                      <span class="setting-value">System <b>›</b></span>
-                    </div>
-                    <div class="settings-row">
-                      <span>Notifications</span><span class="toggle"></span>
-                    </div>
-                    <div class="settings-row">
-                      <span>Sync</span><span class="toggle"></span>
-                    </div>
-                    <div class="settings-row">
-                      <span>Local Data</span>
-                      <span class="setting-value">On Device <b>›</b></span>
-                    </div>
-                    <div class="settings-row">
-                      <span>Advanced</span><span class="setting-value">›</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="floating-panel appearance-panel">
-                  <div class="panel-label">Appearance</div>
-                  <div>System <span class="radio selected">✓</span></div>
-                  <div>Light <span class="radio"></span></div>
-                  <div>Dark <span class="radio"></span></div>
-                </div>
-                <div class="floating-panel notifications-panel">
-                  <div class="panel-label">Notifications</div>
-                  <div>Mentions <span class="mini-toggle"></span></div>
-                  <div>Replies <span class="mini-toggle"></span></div>
-                  <div>Activity <span class="mini-toggle active"></span></div>
-                </div>
-              </div>
-              <div class="project-info">
-                <div class="project-title-row">
-                  <h3>
-                    <button
-                      class="project-title-button"
-                      type="button"
-                      data-project="idiom"
-                      aria-haspopup="dialog"
-                      aria-label="Learn about Idiom, in development"
-                    >
-                      Idiom
-                    </button>
-                  </h3>
-                  <span class="status status-blue">In development</span
-                  ><svg
-                    class="project-arrow arrow"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path d="M5 19 19 5M5 5h14v14" />
-                  </svg>
-                </div>
-                <p>
-                  <span class="copy-wide"
-                    >Native-feeling React Native UI, with familiar controls and
-                    thoughtful defaults.</span
-                  >
-                  <span class="copy-short"
-                    >Native-feeling UI for React Native.</span
-                  >
-                </p>
-                <div class="project-tags">
-                  <span>React Native</span><span>Open source</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <div class="project-visual notes-visual" aria-hidden="true">
-                <div class="notes-window">
-                  <div class="notes-toolbar">
-                    <div class="window-dots"><i></i><i></i><i></i></div>
-                    <span class="notes-tool tool-active">
-                      <svg class="notes-icon" viewBox="0 0 24 24">
-                        <path
-                          d="m15 5 4 4M4 20l5-1L20 8a2.8 2.8 0 0 0-4-4L5 15l-1 5Z"
-                        />
-                      </svg>
-                    </span>
-                    <span class="notes-tool">
-                      <svg class="notes-icon" viewBox="0 0 24 24">
-                        <rect x="9" y="3" width="6" height="5" rx="1.5" />
-                        <rect x="3" y="16" width="6" height="5" rx="1.5" />
-                        <rect x="15" y="16" width="6" height="5" rx="1.5" />
-                        <path d="M12 8v4M6 16v-4h12v4" />
-                      </svg>
-                    </span>
-                    <span class="notes-tool">
-                      <svg class="notes-icon" viewBox="0 0 24 24">
-                        <path d="m5 12 4 4L19 6" />
-                      </svg>
-                    </span>
-                    <span class="notes-tool">
-                      <svg class="notes-icon" viewBox="0 0 24 24">
-                        <circle cx="10.5" cy="10.5" r="6.5" />
-                        <path d="m16 16 4 4" />
-                      </svg>
-                    </span>
-                    <span class="notes-tool">
-                      <svg class="notes-icon" viewBox="0 0 24 24">
-                        <circle cx="5" cy="12" r="1" />
-                        <circle cx="12" cy="12" r="1" />
-                        <circle cx="19" cy="12" r="1" />
-                      </svg>
-                    </span>
-                    <span class="notes-tool window-settings">
-                      <svg class="notes-icon" viewBox="0 0 24 24">
-                        <path d="M3 7h4m4 0h10M3 17h10m4 0h4" />
-                        <circle cx="9" cy="7" r="2" />
-                        <circle cx="15" cy="17" r="2" />
-                      </svg>
-                    </span>
-                  </div>
-                  <div class="notes-workspace">
-                    <div class="notes-sidebar">
-                      <span class="selected">▣ &nbsp; Ideas</span
-                      ><span>▤ &nbsp; Journal</span
-                      ><span>▢ &nbsp; Projects</span
-                      ><span>▱ &nbsp; Archive</span>
-                    </div>
-                    <div class="notes-canvas">
-                      <div class="handwritten notes-heading">
-                        A more<br />thoughtful web
-                      </div>
-                      <svg class="mindmap-lines" viewBox="0 0 360 260">
-                        <g
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
-                          <path
-                            d="m166 74 20 30m-9-3 9 3 0-10M236 122l32-34m-9 1 9-1-1 10M159 150l-27 11m5-8-5 8 10 2M233 153l37 12m-6-8 6 8-10 2M198 173l1 29m-5-7 5 7 5-7"
-                          />
-                        </g>
-                      </svg>
-                      <span class="idea-center handwritten">Ideas</span>
-                      <span class="sticky-note note-left handwritten"
-                        >Clear UI<br />Thoughtful defaults<br />Open
-                        source</span
-                      >
-                      <span class="sticky-note note-right-top handwritten"
-                        >Small tools<br />for real people.</span
-                      >
-                      <span class="sticky-note note-right-bottom handwritten"
-                        >Less friction<br />More curiosity<br />Better
-                        software</span
-                      >
-                      <span class="note-bottom handwritten"
-                        >Build<br />Share<br /><u>Iterate</u></span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="project-info">
-                <div class="project-title-row">
-                  <h3>
-                    <button
-                      class="project-title-button"
-                      type="button"
-                      data-project="notes"
-                      aria-haspopup="dialog"
-                      aria-label="Learn about Notes, an exploration"
-                    >
-                      Notes
-                    </button>
-                  </h3>
-                  <span class="status status-purple">Exploration</span
-                  ><svg
-                    class="project-arrow arrow"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path d="M5 19 19 5M5 5h14v14" />
-                  </svg>
-                </div>
-                <p>
-                  <span class="copy-wide"
-                    >A local-first note-taking experiment for handwriting and
-                    connected ideas.</span
-                  >
-                  <span class="copy-short"
-                    >A local-first experiment for handwritten ideas.</span
-                  >
-                </p>
-                <div class="project-tags">
-                  <span>Local first</span><span>Handwriting</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section id="about" class="about" aria-labelledby="about-title">
-          <div class="about-heading">
-            <p class="eyebrow">02 / The studio</p>
-            <h2 id="about-title">Small studio.<br />Considered software.</h2>
-          </div>
-          <div class="about-copy">
-            <p>
-              <span class="copy-wide"
-                >Vorterlune is an independent, one-person software studio
-                exploring React Native UI and local-first tools for connected
-                ideas. It is my space to solve everyday problems and share what
-                I build.</span
-              >
-              <span class="copy-short"
-                >A one-person studio building thoughtful tools and sharing them
-                openly.</span
-              >
-            </p>
-            <p class="copy-wide">
-              A vortex of information. A few late nights. Something useful at
-              the end.
-            </p>
-          </div>
-          <section class="studio-philosophy" aria-labelledby="philosophy-title">
-            <div class="philosophy-scene" aria-hidden="true">
-              <img
-                src="./assets/studio-philosophy.webp"
-                alt=""
-                width="1536"
-                height="1024"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="philosophy-copy">
-              <p class="philosophy-eyebrow">Philosophy</p>
-              <h3 id="philosophy-title">
-                Better tools<br />for a <span>brighter tomorrow.</span>
-              </h3>
-              <p class="philosophy-description">
-                <span class="copy-wide"
-                  >I believe in thoughtful design, strong engineering, and the
-                  power of small tools to make a big difference. Vorterlune is a
-                  space to explore, build, and create freely — one idea at a
-                  time.</span
-                >
-                <span class="copy-short"
-                  >Small tools built with thoughtful design and strong
-                  engineering.</span
-                >
-              </p>
-            </div>
-            <p class="philosophy-motto">
-              <span>Small</span> <span>ideas.</span> <span>Brighter</span>
-              <span>tomorrows.</span>
-            </p>
-          </section>
-        </section>
-      </main>
-
-      <footer class="site-footer">
-        <a class="brand footer-brand" href="./" aria-label="Vorterlune home"
-          ><img
-            src="./assets/logo.svg"
-            alt="vorterlune"
-            width="158"
-            height="32"
-            loading="lazy"
-        /></a>
-        <p>Built with curiosity.</p>
-        <div class="footer-links">
-          <button
-            class="motion-toggle"
-            type="button"
-            aria-pressed="false"
-            hidden
+          <a class="transition-colors hover:text-white" href="#projects"
+            >Products</a
           >
-            <svg viewBox="0 0 16 16" aria-hidden="true">
-              <path d="M5 3v10M11 3v10" /></svg
-            ><span>Pause motion</span></button
-          ><a
-            class="text-link"
+          <a
+            class="transition-colors hover:text-white"
             href="https://github.com/Vorterlune"
             target="_blank"
             rel="noopener noreferrer"
-            >GitHub
-            <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M5 19 19 5M5 5h14v14" /></svg
-          ></a>
+            >Open Source<span class="sr-only"> (opens in a new tab)</span></a
+          >
+          <a class="transition-colors hover:text-white" href="#about">About</a>
+          <a class="transition-colors hover:text-white" href="#connect"
+            >Connect</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section
+        class="hero relative isolate overflow-hidden"
+        aria-labelledby="hero-title"
+      >
+        <div
+          class="relative mx-auto max-w-[1440px] px-6 pt-16 sm:px-10 sm:pt-20 lg:px-16 lg:pt-32"
+        >
+          <div class="hero-copy relative z-10 max-w-[730px]">
+            <p class="eyebrow mb-7 sm:mb-9">
+              Ideas <span class="mx-2 text-neutral-600 sm:mx-4">/</span> Tools
+              <span class="mx-2 text-neutral-600 sm:mx-4">/</span> A brighter
+              tomorrow
+            </p>
+            <h1
+              id="hero-title"
+              class="text-[clamp(2.7rem,5.2vw,4.7rem)] leading-[1.09] font-semibold tracking-[-0.055em]"
+            >
+              <span class="block">Thoughtful software,</span
+              ><span class="block">built with intent.</span>
+            </h1>
+            <p
+              class="mt-7 max-w-[540px] text-[17px] leading-[1.7] text-silver sm:text-xl lg:mt-8"
+            >
+              An independent software studio exploring React Native UI and
+              local-first tools for connected ideas.
+            </p>
+            <div class="mt-9 flex flex-wrap gap-3 sm:gap-4 lg:mt-10">
+              <a
+                class="inline-flex min-h-14 items-center justify-center gap-5 rounded-lg border border-white bg-white px-6 text-sm font-semibold text-black transition-colors hover:border-neutral-300 hover:bg-neutral-300 sm:px-7 sm:text-base"
+                href="#projects"
+                >Explore Our Work<svg class="icon size-5" aria-hidden="true">
+                  <use href="#icon-arrow" /></svg
+              ></a>
+              <a
+                class="inline-flex min-h-14 items-center justify-center gap-3 rounded-lg border border-neutral-500 bg-black/60 px-6 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-neutral-900 sm:px-7 sm:text-base"
+                href="https://github.com/Vorterlune"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><svg class="size-5" aria-hidden="true">
+                  <use href="#icon-github" /></svg
+                >View on GitHub<span class="sr-only">
+                  (opens in a new tab)</span
+                ></a
+              >
+            </div>
+            <div
+              class="mt-14 flex items-center gap-3 text-[11px] font-medium tracking-[0.16em] text-muted uppercase lg:mt-20"
+            >
+              <span
+                class="size-1.5 rounded-full bg-neutral-400"
+                aria-hidden="true"
+              ></span
+              >Independent. Curious. Open source.
+            </div>
+          </div>
+          <div class="hero-art" data-motion-scene aria-hidden="true">
+            <img
+              src="./assets/space-hero-1600.webp"
+              srcset="
+                ./assets/space-hero-640.webp   640w,
+                ./assets/space-hero-1024.webp 1024w,
+                ./assets/space-hero-1600.webp 1600w
+              "
+              sizes="(min-width: 1024px) 1000px, (min-width: 640px) 850px, 680px"
+              width="1600"
+              height="1067"
+              fetchpriority="high"
+              decoding="async"
+              alt=""
+              class="hero-cosmos"
+            />
+            <svg class="hero-orbit" viewBox="0 0 850 750" focusable="false">
+              <ellipse
+                cx="438"
+                cy="354"
+                rx="368"
+                ry="302"
+                transform="rotate(-28 438 354)"
+              />
+              <circle cx="167" cy="126" r="6" />
+              <circle cx="138" cy="580" r="5" />
+              <circle cx="763" cy="209" r="8" />
+            </svg>
+            <div class="scene-card scene-card-main">
+              <img
+                src="./assets/logo-white.png"
+                width="869"
+                height="202"
+                alt=""
+                class="w-[150px]"
+              />
+              <div
+                class="mt-10 font-mono text-[19px] leading-[1.55] text-neutral-300"
+              >
+                Build<br />Experiment<br />Improve<br />Repeat
+              </div>
+              <span class="mt-5 block h-px w-5 bg-neutral-400"></span>
+              <div class="card-vortex"></div>
+            </div>
+            <div class="scene-card scene-card-ideas">
+              <p class="font-mono text-lg leading-[1.5] text-neutral-300">
+                Ideas<br />Tools<br />People<br />Progress
+              </p>
+              <span class="mt-4 block h-px w-5 bg-neutral-400"></span
+              ><span class="small-moon"></span>
+            </div>
+            <div class="scene-card scene-card-code">
+              <div class="flex gap-1.5 border-b border-white/10 px-4 py-3">
+                <i class="size-1.5 rounded-full bg-neutral-300"></i
+                ><i class="size-1.5 rounded-full bg-neutral-300"></i
+                ><i class="size-1.5 rounded-full bg-neutral-300"></i>
+              </div>
+              <div
+                class="px-6 py-5 font-mono text-[12px] leading-[1.9] text-neutral-400"
+              >
+                <span class="text-neutral-500">// A more capable tomorrow</span
+                ><br />const ideas = new Possibility();<br />while (curiosity)
+                {<br />&nbsp;&nbsp;create();<br />&nbsp;&nbsp;improve();<br />&nbsp;&nbsp;share();<br />}
+              </div>
+            </div>
+            <p class="scene-motto">
+              Small<br />ideas.<br />Bigger<br />tomorrows.<span
+                class="mt-4 block h-px w-5 bg-neutral-500"
+              ></span>
+            </p>
+          </div>
         </div>
-      </footer>
-    </div>
+      </section>
+
+      <section
+        id="about"
+        class="relative mx-auto max-w-[1440px] scroll-mt-8 px-6 pt-16 sm:px-10 sm:pt-20 lg:px-16 lg:pt-24"
+        aria-labelledby="about-title"
+      >
+        <div
+          class="flex flex-col justify-between gap-5 lg:flex-row lg:items-end lg:gap-16"
+        >
+          <div>
+            <p class="eyebrow mb-3">What we do</p>
+            <h2
+              id="about-title"
+              class="text-[clamp(1.9rem,3vw,2.6rem)] leading-[1.2] font-medium tracking-[-0.035em]"
+            >
+              Three ways we create impact.
+            </h2>
+          </div>
+          <p class="max-w-[380px] text-sm leading-[1.75] text-silver">
+            A one-person studio with room to explore. From open source to
+            original products, Vorterlune is a space to solve everyday problems
+            and share what takes shape.
+          </p>
+        </div>
+        <div class="mt-9 grid gap-5 md:grid-cols-3 lg:gap-6">
+          <article
+            class="group relative flex flex-col rounded-xl border border-line bg-surface/50 p-7 transition-colors hover:border-neutral-600 sm:p-8 md:p-5 lg:p-8"
+          >
+            <span class="absolute top-7 right-7 font-mono text-xs text-muted"
+              >01</span
+            ><svg class="icon mb-6 size-9" aria-hidden="true">
+              <use href="#icon-code" />
+            </svg>
+            <h3
+              class="text-[23px] font-medium tracking-[-0.02em] md:text-xl lg:text-[23px]"
+            >
+              Open Source
+            </h3>
+            <p
+              class="mt-3 mb-8 max-w-[300px] text-base leading-[1.65] text-silver md:text-sm lg:text-base"
+            >
+              Useful tools for developers, built in the open. An interest in a
+              more collaborative, accessible internet.
+            </p>
+            <a
+              href="https://github.com/Vorterlune"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-auto inline-flex w-fit items-center gap-4 rounded-sm text-sm font-semibold"
+              >Explore on GitHub<span class="sr-only">
+                (opens in a new tab)</span
+              ><svg
+                class="icon size-5 transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
+              >
+                <use href="#icon-arrow" /></svg
+            ></a>
+          </article>
+          <article
+            class="group relative flex flex-col rounded-xl border border-line bg-surface/50 p-7 transition-colors hover:border-neutral-600 sm:p-8 md:p-5 lg:p-8"
+          >
+            <span class="absolute top-7 right-7 font-mono text-xs text-muted"
+              >02</span
+            ><svg class="icon mb-6 size-9" aria-hidden="true">
+              <use href="#icon-cube" />
+            </svg>
+            <h3
+              class="text-[23px] font-medium tracking-[-0.02em] md:text-xl lg:text-[23px]"
+            >
+              Products
+            </h3>
+            <p
+              class="mt-3 mb-8 max-w-[300px] text-base leading-[1.65] text-silver md:text-sm lg:text-base"
+            >
+              Thoughtful software for everyday problems. Familiar interfaces,
+              considered details, and ideas worth pursuing.
+            </p>
+            <a
+              href="#projects"
+              class="mt-auto inline-flex w-fit items-center gap-4 rounded-sm text-sm font-semibold"
+              >See Our Projects<svg
+                class="icon size-5 transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
+              >
+                <use href="#icon-arrow" /></svg
+            ></a>
+          </article>
+          <article
+            class="group relative flex flex-col rounded-xl border border-line bg-surface/50 p-7 transition-colors hover:border-neutral-600 sm:p-8 md:p-5 lg:p-8"
+          >
+            <span class="absolute top-7 right-7 font-mono text-xs text-muted"
+              >03</span
+            ><svg class="icon mb-6 size-9" aria-hidden="true">
+              <use href="#icon-flask" />
+            </svg>
+            <h3
+              class="text-[23px] font-medium tracking-[-0.02em] md:text-xl lg:text-[23px]"
+            >
+              Experiments
+            </h3>
+            <p
+              class="mt-3 mb-8 max-w-[300px] text-base leading-[1.65] text-silver md:text-sm lg:text-base"
+            >
+              Early ideas, open questions, and explorations into what’s next. A
+              little room to think. A playground for possibility.
+            </p>
+            <a
+              href="#notes"
+              class="mt-auto inline-flex w-fit items-center gap-4 rounded-sm text-sm font-semibold"
+              >Explore Notes<svg
+                class="icon size-5 transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
+              >
+                <use href="#icon-arrow" /></svg
+            ></a>
+          </article>
+        </div>
+      </section>
+
+      <section
+        id="projects"
+        class="mx-auto max-w-[1440px] scroll-mt-8 px-6 pt-12 sm:px-10 lg:px-16"
+        aria-labelledby="projects-title"
+      >
+        <div class="border-t border-line pt-10">
+          <p class="eyebrow mb-3">Featured projects</p>
+          <h2
+            id="projects-title"
+            class="text-[clamp(1.75rem,2.5vw,2.15rem)] leading-tight font-medium tracking-[-0.035em]"
+          >
+            Tools for a more capable tomorrow.
+          </h2>
+        </div>
+        <div class="mt-7 grid gap-5 md:grid-cols-2">
+          <article
+            id="idiom"
+            class="scroll-mt-8 rounded-xl border border-line bg-surface/50 p-6 sm:p-7"
+          >
+            <div class="flex gap-4">
+              <div
+                class="flex size-13 shrink-0 items-center justify-center rounded-xl border border-white/5 bg-white/5"
+              >
+                <svg class="icon size-8" aria-hidden="true">
+                  <use href="#icon-layers" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">Idiom</h3>
+                <p class="mt-1 text-sm leading-relaxed text-silver">
+                  Native-feeling React Native UI, with familiar controls and
+                  thoughtful defaults.
+                </p>
+              </div>
+            </div>
+            <div class="mt-5 flex flex-wrap gap-2 text-[11px] font-medium">
+              <span class="rounded-md bg-white/7 px-3 py-1.5 text-silver"
+                >React Native</span
+              ><span class="rounded-md bg-white/7 px-3 py-1.5 text-silver"
+                >Open source</span
+              ><span
+                class="rounded-md border border-neutral-700 px-3 py-1.5 text-silver"
+                >In development</span
+              >
+            </div>
+            <button
+              type="button"
+              data-project="idiom"
+              aria-haspopup="dialog"
+              aria-controls="idiom-dialog"
+              hidden
+              class="mt-5 inline-flex min-h-8 items-center gap-3 rounded-sm text-xs font-medium text-silver transition-colors hover:text-white"
+            >
+              About Idiom<svg class="icon size-4" aria-hidden="true">
+                <use href="#icon-arrow" />
+              </svg>
+            </button>
+          </article>
+          <article
+            id="notes"
+            class="scroll-mt-8 rounded-xl border border-line bg-surface/50 p-6 sm:p-7"
+          >
+            <div class="flex gap-4">
+              <div
+                class="flex size-13 shrink-0 items-center justify-center rounded-xl border border-white/5 bg-white/5"
+              >
+                <svg class="icon size-8" aria-hidden="true">
+                  <use href="#icon-note" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">Notes</h3>
+                <p class="mt-1 text-sm leading-relaxed text-silver">
+                  A local-first note-taking experiment for handwriting and
+                  connected ideas.
+                </p>
+              </div>
+            </div>
+            <div class="mt-5 flex flex-wrap gap-2 text-[11px] font-medium">
+              <span class="rounded-md bg-white/7 px-3 py-1.5 text-silver"
+                >Local first</span
+              ><span class="rounded-md bg-white/7 px-3 py-1.5 text-silver"
+                >Handwriting</span
+              ><span
+                class="rounded-md border border-neutral-700 px-3 py-1.5 text-silver"
+                >Exploration</span
+              >
+            </div>
+            <button
+              type="button"
+              data-project="notes"
+              aria-haspopup="dialog"
+              aria-controls="notes-dialog"
+              hidden
+              class="mt-5 inline-flex min-h-8 items-center gap-3 rounded-sm text-xs font-medium text-silver transition-colors hover:text-white"
+            >
+              About Notes<svg class="icon size-4" aria-hidden="true">
+                <use href="#icon-arrow" />
+              </svg>
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <section
+        id="connect"
+        class="connect relative isolate mt-12 scroll-mt-8 overflow-hidden sm:mt-16"
+        aria-labelledby="connect-title"
+      >
+        <img
+          src="./assets/space-horizon-1920.webp"
+          srcset="
+            ./assets/space-horizon-768.webp   768w,
+            ./assets/space-horizon-1280.webp 1280w,
+            ./assets/space-horizon-1920.webp 1920w
+          "
+          sizes="100vw"
+          alt=""
+          width="1920"
+          height="640"
+          loading="lazy"
+          decoding="async"
+          class="horizon-art"
+        />
+        <div
+          class="relative z-10 mx-auto flex max-w-[1440px] flex-col justify-between gap-8 px-6 pt-36 pb-14 sm:px-10 sm:pt-44 sm:pb-16 lg:flex-row lg:items-end lg:gap-16 lg:px-16 lg:pt-48"
+        >
+          <div>
+            <p class="eyebrow mb-4">Same curiosity. Higher horizons.</p>
+            <h2
+              id="connect-title"
+              class="text-[clamp(2.2rem,3.5vw,3.1rem)] leading-[1.1] font-medium tracking-[-0.045em]"
+            >
+              Let’s build what’s next.
+            </h2>
+          </div>
+          <div class="max-w-[350px]">
+            <p class="mb-5 text-sm leading-[1.75] text-silver">
+              Follow the projects, explore the experiments, and see where a
+              little curiosity leads.
+            </p>
+            <a
+              href="https://github.com/Vorterlune"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-12 items-center gap-5 rounded-md bg-white px-5 text-sm font-semibold text-black transition-colors hover:bg-neutral-300"
+              >View on GitHub<span class="sr-only"> (opens in a new tab)</span
+              ><svg class="icon size-5" aria-hidden="true">
+                <use href="#icon-arrow" /></svg
+            ></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-16">
+      <div
+        class="flex flex-col justify-between gap-9 border-t border-line py-10 md:flex-row md:items-center"
+      >
+        <div>
+          <a
+            href="./"
+            aria-label="Vorterlune home"
+            class="inline-block rounded-sm"
+            ><img
+              src="./assets/logo-white.png"
+              width="869"
+              height="202"
+              alt="Vorterlune"
+              loading="lazy"
+              class="h-auto w-[164px]"
+          /></a>
+          <p class="mt-3 text-[11px] text-silver">
+            Ideas. Tools. A Brighter Tomorrow.
+          </p>
+        </div>
+        <nav
+          aria-label="Footer navigation"
+          class="flex flex-wrap gap-x-7 gap-y-4 text-xs text-silver"
+        >
+          <a href="#projects" class="hover:text-white">Products</a
+          ><a
+            href="https://github.com/Vorterlune"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-white"
+            >Open Source<span class="sr-only"> (opens in a new tab)</span></a
+          ><a href="#about" class="hover:text-white">About</a
+          ><a href="#connect" class="hover:text-white">Connect</a>
+        </nav>
+        <a
+          href="https://github.com/Vorterlune"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Vorterlune on GitHub (opens in a new tab)"
+          class="flex size-11 items-center justify-center rounded-md border border-line transition-colors hover:border-neutral-500"
+          ><svg class="size-5" aria-hidden="true">
+            <use href="#icon-github" /></svg
+        ></a>
+      </div>
+      <div
+        class="flex flex-col gap-5 border-t border-line py-6 text-[11px] text-muted sm:flex-row sm:items-center sm:justify-between"
+      >
+        <p>© <span data-year>2026</span> Vorterlune. All rights reserved.</p>
+        <div class="flex flex-wrap items-center gap-6">
+          <button
+            data-motion-toggle
+            type="button"
+            hidden
+            aria-pressed="false"
+            class="inline-flex min-h-8 items-center gap-2 rounded-sm text-muted hover:text-white"
+          >
+            <svg class="icon size-3" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M5 3v10M11 3v10" /></svg
+            ><span data-motion-label>Pause motion</span>
+          </button>
+          <p>Built with curiosity.</p>
+        </div>
+      </div>
+    </footer>
 
     <dialog
       id="idiom-dialog"
       class="project-dialog"
       aria-labelledby="idiom-dialog-title"
+      aria-describedby="idiom-dialog-lead"
     >
       <button
         class="dialog-close"
@@ -533,18 +643,25 @@
       >
         ×
       </button>
-      <span class="status status-blue">In development</span>
-      <h2 id="idiom-dialog-title">Idiom</h2>
-      <p class="dialog-lead">Native-feeling UI for React Native.</p>
-      <p>
+      <p class="eyebrow mb-5">In development</p>
+      <h2 id="idiom-dialog-title" class="text-4xl font-medium tracking-tight">
+        Idiom
+      </h2>
+      <p id="idiom-dialog-lead" class="mt-4 text-xl leading-relaxed">
+        Native-feeling UI for React Native.
+      </p>
+      <p class="mt-5 leading-relaxed text-silver">
         An exploration of the little things that make an interface feel right.
         Familiar controls, thoughtful defaults, and details that belong on your
         device.
       </p>
-      <div class="dialog-tags project-tags">
-        <span>React Native</span><span>Open source</span>
+      <div class="mt-6 flex flex-wrap gap-2 text-xs">
+        <span class="rounded-md bg-white/7 px-3 py-2">React Native</span
+        ><span class="rounded-md bg-white/7 px-3 py-2">Open source</span>
       </div>
-      <p class="dialog-footnote">
+      <p
+        class="mt-8 border-t border-line pt-5 text-sm leading-relaxed text-muted"
+      >
         Still on the workbench. More to share as it takes shape.
       </p>
     </dialog>
@@ -552,6 +669,7 @@
       id="notes-dialog"
       class="project-dialog"
       aria-labelledby="notes-dialog-title"
+      aria-describedby="notes-dialog-lead"
     >
       <button
         class="dialog-close"
@@ -560,18 +678,25 @@
       >
         ×
       </button>
-      <span class="status status-purple">Exploration</span>
-      <h2 id="notes-dialog-title">Notes</h2>
-      <p class="dialog-lead">A more natural space for connected ideas.</p>
-      <p>
+      <p class="eyebrow mb-5">Exploration</p>
+      <h2 id="notes-dialog-title" class="text-4xl font-medium tracking-tight">
+        Notes
+      </h2>
+      <p id="notes-dialog-lead" class="mt-4 text-xl leading-relaxed">
+        A more natural space for connected ideas.
+      </p>
+      <p class="mt-5 leading-relaxed text-silver">
         Exploring how handwriting and a little room to think can bring ideas
         together. A local-first approach to capturing thoughts, making
         connections, and following your curiosity.
       </p>
-      <div class="dialog-tags project-tags">
-        <span>Local first</span><span>Handwriting</span>
+      <div class="mt-6 flex flex-wrap gap-2 text-xs">
+        <span class="rounded-md bg-white/7 px-3 py-2">Local first</span
+        ><span class="rounded-md bg-white/7 px-3 py-2">Handwriting</span>
       </div>
-      <p class="dialog-footnote">
+      <p
+        class="mt-8 border-t border-line pt-5 text-sm leading-relaxed text-muted"
+      >
         An idea in progress. Taking shape, one note at a time.
       </p>
     </dialog>

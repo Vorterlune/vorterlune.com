@@ -1,3 +1,42 @@
+# Monochrome space artwork
+
+The two original scenes were generated with the built-in imagegen tool for the Vorterlune redesign. They contain no text, branding, cards, or UI; all page copy and decorative card contents are rendered separately in HTML. Output was visually inspected, resized with Lanczos, and encoded as WebP at quality 84. No third-party stock artwork is used.
+
+## Current assets
+
+| Asset                     | Dimensions      | Purpose                          |
+| ------------------------- | --------------- | -------------------------------- |
+| `space-hero-640.webp`     | 640 × 427       | Small hero                       |
+| `space-hero-1024.webp`    | 1024 × 683      | Medium hero                      |
+| `space-hero-1600.webp`    | 1600 × 1067     | Large hero                       |
+| `space-horizon-768.webp`  | 768 × 256       | Small horizon                    |
+| `space-horizon-1280.webp` | 1280 × 427      | Medium horizon                   |
+| `space-horizon-1920.webp` | 1920 × 640      | Large horizon                    |
+| `logo-white.png`          | 869 × 202       | Original supplied white wordmark |
+| `favicon.svg`             | 64 × 64 viewBox | Original white symbol on black   |
+| `organization-logo.png`   | 512 × 512       | Original black symbol on white   |
+| `social-preview.jpg`      | 1200 × 630      | Social sharing image             |
+
+The hero source was 1536 × 1024 and the horizon source was 2172 × 724. Each responsive family preserves its source aspect ratio, subject only to whole-pixel rounding. The 1600px hero variant is a small upscale of the original.
+
+`logo-white.png` is an unmodified copy of the user's `Final/PNG Files (Transparent Background)/Logo-H43.png`. The favicon uses the unchanged path geometry from `Final/Icon size/SVG Files (Transparent Background)/Logo H44.svg`, scaled with margins on a black background. The organization logo uses the unchanged path geometry from `Logo H46.svg`, rendered on a white square with 64px margins.
+
+The social image composites the generated hero, the real white wordmark, and the self-hosted Inter font. Its headline is “Thoughtful software, built with intent.”; text and branding are not generated. Pillow was used only for deterministic resizing, encoding, and this requested composition; macOS `sips` rendered the organization SVG.
+
+## Hero generation prompt
+
+Use case: stylized-concept. Asset type: high-end software studio website hero background, original raster artwork. Create a cinematic monochrome space composition in a 3:2 landscape canvas, approximately 1536x1024. Entirely black, white, and neutral grayscale. On the upper-left of the central composition, a large highly detailed cratered crescent moon with a thin bright sunlit rim; from its shadowed right edge a luminous swirling black-hole vortex arcs into the right-center of the frame, rendered with realistic subtle silver light trails and deep dark core. Delicate orbital ellipses, two tiny rocky moons, and a few sparse pinprick stars surround it. Premium science-fiction editorial realism with tactile crater detail, dramatic chiaroscuro, thin restrained glow, immense black negative space. Composition must be self-contained with planet and vortex fully inside the canvas: leave 10% pure black margin on all sides and fade all orbital trails smoothly into pure black edges. The artwork will sit to the right of real website text, so keep the leftmost quarter predominantly black. No text, no typography, no logo, no cards, no panels, no UI, no website screenshot, no browser frame, no colorful accents, no watermarks.
+
+## Horizon generation prompt
+
+Use case: stylized-concept. Asset type: wide cinematic website closing section background, original raster artwork. Create a refined monochrome planetary horizon seen from very low orbit, in a panoramic 3:1 landscape canvas, approximately 1920x640. Entirely black, white and neutral gray. A majestic gentle arc of a dark planet spans the full width; the arc peaks around one-third from the top at center and slopes toward the lower side edges. An extremely thin luminous silver atmosphere catches the light, with subtle realistic grayscale landforms, rugged craters and cloud wisps below it. Upper third is pure black empty space with very few tiny stars. Planet surface occupies the center and lower part, with deep shadow and smooth fade into pure black along the lower edge so real white text can be placed in front. Quiet, photorealistic, dramatic yet restrained; high detail around the rim, softly diminishing into black. No text, no typography, no logos, no watermarks, no UI, no buildings, no colorful accents, no sunrise disk, no bright sun.
+
+---
+
+# Legacy artwork provenance
+
+The following assets belong to the previous design and are retained for provenance.
+
 # Hero illustration
 
 Asset: `studio-night.webp`. Generated once with the built-in image-generation tool, then encoded as WebP.
