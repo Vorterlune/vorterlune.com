@@ -57,6 +57,6 @@ To track indexing, verify the domain in [Google Search Console](https://search.g
 
 ## Artwork and fonts
 
-The supplied black-and-white designer logo geometry is preserved. The moon/vortex scene was edited with imagegen from the supplied hero reference; the planetary horizon was generated separately. Both use optimized responsive variants. The hero raster includes the decorative glass-panel surfaces, while all typography, branding, links, and buttons remain real HTML. Generation details are recorded in `assets/ARTWORK.md`.
+The supplied black-and-white designer logo geometry is preserved. The moon background and isolated transparent vortex were edited with imagegen from the supplied hero reference; the planetary horizon was generated separately. All use optimized responsive variants. The three decorative glass panels are real HTML and CSS, floating independently in front of the moon while the separate vortex layer rotates gently. Typography, branding, links, and buttons remain real HTML. The sharing image retains the earlier static composition. Generation details are recorded in `assets/ARTWORK.md`.
 
 Inter is self-hosted. Font license files are retained in `assets/`.

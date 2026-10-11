@@ -216,7 +216,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  animation: scene-drift 16s ease-in-out infinite;
+  isolation: isolate;
 }
 .hero-cosmos {
   display: block;
@@ -224,42 +224,162 @@
   height: 100%;
   object-fit: contain;
 }
+.scene-vortex {
+  position: absolute;
+  z-index: 1;
+  left: 31%;
+  top: 15%;
+  width: 68%;
+  height: 68%;
+  object-fit: contain;
+  opacity: 0.84;
+  animation: vortex-spin 200s linear infinite;
+}
+/* A separate wrapper lets the whole card float without detaching its content. */
+.scene-card {
+  position: absolute;
+  z-index: 2;
+  animation: card-float 12s ease-in-out infinite;
+  --float-rise: -1.4cqi;
+  --float-drift: 0.45cqi;
+  --float-tilt: 1deg;
+}
+.scene-card-surface {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid #ffffff70;
+  border-top-color: #ffffffc0;
+  border-left-color: #ffffffa0;
+  border-radius: 2.2cqi;
+  background: linear-gradient(135deg, #292929e6, #080808f7 48%, #030303fa);
+  box-shadow:
+    inset 0 1px 1px #ffffff40,
+    0 2.2cqi 5cqi #0008;
+  transform-origin: center;
+}
+.scene-card-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    #ffffff08,
+    transparent 27%,
+    #ffffff03 30%,
+    transparent 38%
+  );
+}
+.scene-card--main {
+  left: 30%;
+  top: 29%;
+  width: 48%;
+  height: 46%;
+  animation-duration: 13s;
+  animation-delay: -3s;
+}
+.scene-card--main .scene-card-surface {
+  transform: rotate(-4deg) skewX(-9deg);
+  background: linear-gradient(
+    112deg,
+    #242424ed,
+    #080808b0 34%,
+    #05050515 72%,
+    #10101040
+  );
+}
+.scene-card--ideas {
+  z-index: 4;
+  left: 19%;
+  top: 61%;
+  width: 28%;
+  height: 23%;
+  animation-duration: 9s;
+  animation-delay: -5s;
+  --float-rise: -2cqi;
+  --float-drift: -0.6cqi;
+  --float-tilt: -1.6deg;
+}
+.scene-card--ideas .scene-card-surface {
+  transform: rotate(12deg) skewX(4deg);
+}
+.scene-card--code {
+  z-index: 3;
+  left: 48.5%;
+  top: 60%;
+  width: 38%;
+  height: 32%;
+  animation-duration: 11s;
+  animation-delay: -1s;
+  --float-rise: -1.7cqi;
+  --float-drift: 0.7cqi;
+  --float-tilt: 1.4deg;
+}
+.scene-card--code .scene-card-surface {
+  transform: rotate(8deg) skewX(-1deg);
+}
 .scene-wordmark {
   position: absolute;
-  left: 35.3%;
-  top: 32.5%;
-  width: 18.2%;
+  left: 10%;
+  top: 10%;
+  width: 43%;
   height: auto;
-  transform: rotate(-4deg) skewX(-7deg);
-  transform-origin: left top;
 }
 .scene-manifesto {
   position: absolute;
-  left: 35.1%;
-  top: 42.4%;
+  left: 10%;
+  top: 33%;
   font-size: 2.3cqi;
   line-height: 1.42;
-  transform: rotate(-4deg) skewX(-7deg);
-  transform-origin: left top;
 }
 .scene-ideas {
   position: absolute;
-  left: 23.2%;
-  top: 61.5%;
+  left: 14%;
+  top: 16%;
   font-size: 2.35cqi;
   line-height: 1.4;
-  transform: rotate(10deg);
-  transform-origin: left top;
 }
 .scene-code {
   position: absolute;
-  left: 53.5%;
-  top: 62.8%;
+  left: 10%;
+  top: 22%;
   font-size: 1.66cqi;
   line-height: 1.65;
   white-space: nowrap;
-  transform: rotate(8deg) skewX(-1deg);
-  transform-origin: left top;
+}
+.card-window-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.65cqi;
+  height: 4.3cqi;
+  padding-inline: 1.5cqi;
+  border-bottom: 1px solid #ffffff20;
+}
+.card-window-bar i {
+  width: 0.9cqi;
+  height: 0.9cqi;
+  border-radius: 50%;
+  background: #e5e5e5;
+  box-shadow: 0 0 0.5cqi #ffffff25;
+}
+.card-crescent {
+  position: absolute;
+  right: 14%;
+  top: 35%;
+  width: 4.2cqi;
+  height: 4.2cqi;
+  border-radius: 50%;
+  box-shadow: inset 0.8cqi -0.3cqi 0.2cqi #e4e4e4;
+  filter: drop-shadow(-0.3cqi 0 0.7cqi #ffffff35);
+  transform: rotate(-24deg);
+}
+.scene-card--code .card-crescent {
+  top: auto;
+  bottom: 10%;
+  right: 10%;
+  transform: rotate(168deg);
 }
 .scene-dash {
   display: block;
@@ -320,16 +440,22 @@
   inset: 0;
   background: linear-gradient(transparent 10%, #05050555 50%, #050505 100%);
 }
-.motion-paused .hero-composition {
+.motion-paused [data-motion-layer] {
   animation-play-state: paused;
 }
-@keyframes scene-drift {
+@keyframes card-float {
   0%,
   100% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0) rotate(0);
   }
   50% {
-    transform: translateY(-5px);
+    transform: translate3d(var(--float-drift), var(--float-rise), 0)
+      rotate(var(--float-tilt));
+  }
+}
+@keyframes vortex-spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -445,9 +571,13 @@
     letter-spacing: 0.14em;
   }
   .hero-art {
-    width: 540px;
+    left: 44%;
+    width: min(540px, 134vw);
     margin-top: -12px;
     margin-bottom: -12px;
+  }
+  .scene-card--ideas {
+    left: 21.5%;
   }
   .project-dialog {
     padding: 42px 24px 28px;
