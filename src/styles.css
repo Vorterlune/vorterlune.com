@@ -262,6 +262,39 @@
   border-top-color: #ffffff0c;
   border-left-color: transparent;
 }
+.orbit-star {
+  position: absolute;
+  z-index: 2;
+  left: 25%;
+  top: 87.8%;
+  width: 4cqi;
+  height: 4cqi;
+  opacity: 0.55;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    #fff 0 4%,
+    #ffffff9c 7%,
+    #ffffff24 22%,
+    transparent 70%
+  );
+  animation: star-twinkle 8s ease-in-out -6s infinite;
+}
+.orbit-star::before,
+.orbit-star::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 75%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  transform: translate(-50%, -50%) rotate(-15deg);
+}
+.orbit-star::after {
+  width: 55%;
+  transform: translate(-50%, -50%) rotate(75deg);
+}
 .orbit-carrier {
   position: absolute;
   z-index: 2;
@@ -532,6 +565,18 @@
 @keyframes vortex-spin {
   to {
     transform: rotate(360deg);
+  }
+}
+@keyframes star-twinkle {
+  0%,
+  55%,
+  100% {
+    opacity: 0.18;
+    transform: translate(-50%, -50%) scale(0.75);
+  }
+  75% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.15);
   }
 }
 @keyframes planet-orbit {
