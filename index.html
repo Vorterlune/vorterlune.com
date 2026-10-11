@@ -105,6 +105,10 @@
             d="M12 .8a11.4 11.4 0 0 0-3.6 22.22c.57.1.78-.25.78-.55v-2.12c-3.17.69-3.84-1.35-3.84-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.24 3.32.95.1-.74.4-1.24.72-1.53-2.53-.29-5.19-1.26-5.19-5.64 0-1.24.44-2.26 1.17-3.06-.12-.29-.51-1.45.11-3.02 0 0 .96-.3 3.13 1.17A10.9 10.9 0 0 1 12 6.3c.97 0 1.93.13 2.84.38 2.17-1.47 3.12-1.17 3.12-1.17.63 1.57.24 2.73.12 3.02.73.8 1.17 1.82 1.17 3.06 0 4.39-2.67 5.35-5.21 5.63.41.36.77 1.05.77 2.12v3.13c0 .31.21.66.79.55A11.4 11.4 0 0 0 12 .8Z"
           />
         </symbol>
+        <symbol id="icon-mail" viewBox="0 0 24 24">
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <path d="m3 7 9 6 9-6" />
+        </symbol>
         <symbol id="icon-code" viewBox="0 0 32 32">
           <path d="m9 9-7 7 7 7m14-14 7 7-7 7M19 4l-6 24" />
         </symbol>
@@ -687,15 +691,24 @@
           ><a href="#about" class="hover:text-white">About</a
           ><a href="#connect" class="hover:text-white">Connect</a>
         </nav>
-        <a
-          href="https://github.com/Vorterlune"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Vorterlune on GitHub (opens in a new tab)"
-          class="flex size-11 items-center justify-center rounded-md border border-line transition-colors hover:border-neutral-500"
-          ><svg class="size-5" aria-hidden="true">
-            <use href="#icon-github" /></svg
-        ></a>
+        <div class="flex items-center gap-3">
+          <a
+            href="https://github.com/Vorterlune"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Vorterlune on GitHub (opens in a new tab)"
+            class="flex size-11 items-center justify-center rounded-md border border-line transition-colors hover:border-neutral-500"
+            ><svg class="size-5" aria-hidden="true">
+              <use href="#icon-github" /></svg
+          ></a>
+          <a
+            href="mailto:hello@vorterlune.com"
+            aria-label="Email hello@vorterlune.com"
+            class="flex size-11 items-center justify-center rounded-md border border-line transition-colors hover:border-neutral-500"
+            ><svg class="icon size-5" aria-hidden="true">
+              <use href="#icon-mail" /></svg
+          ></a>
+        </div>
       </div>
       <div
         class="flex flex-col gap-5 border-t border-line py-6 text-[11px] text-muted sm:flex-row sm:items-center sm:justify-between"
