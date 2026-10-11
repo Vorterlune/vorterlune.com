@@ -37,7 +37,7 @@ Project summaries remain in the initial HTML. The project cards provide detail d
 
 Navigation works with a keyboard and without JavaScript. A skip link bypasses the header. Native project dialogs support Escape, labeled close controls, and focus return to their opener. Essential descriptions remain readable without opening a dialog.
 
-The footer motion control pauses animations for the current visit. Animations respect `prefers-reduced-motion` and suspend while the page is hidden or artwork is offscreen. Decorative artwork is hidden from assistive technology; meaningful content, headings, logos, and buttons remain separate HTML.
+The footer motion control pauses animations for the current visit. Animations respect `prefers-reduced-motion` and suspend while the page is hidden or artwork is offscreen. This includes the floating cards, spinning vortex, orbiting planets, and their counterrotation. Decorative artwork is hidden from assistive technology; meaningful content, headings, logos, and buttons remain separate HTML.
 
 Check desktop and mobile layouts, keyboard focus, reduced-motion behavior, and JavaScript-disabled rendering after changing the design. Test at 375px, 768px, 1280px, and 1440px, plus 200% browser zoom. Run mobile and desktop Lighthouse audits to assess accessibility, SEO, and loading performance; deployed field measurements are needed to confirm Core Web Vitals.
 
@@ -57,6 +57,8 @@ To track indexing, verify the domain in [Google Search Console](https://search.g
 
 ## Artwork and fonts
 
-The supplied black-and-white designer logo geometry is preserved. The moon background and isolated transparent vortex were edited with imagegen from the supplied hero reference; the planetary horizon was generated separately. All use optimized responsive variants. The three decorative glass panels are real HTML and CSS, floating independently in front of the moon while the separate vortex layer rotates gently. Typography, branding, links, and buttons remain real HTML. The sharing image retains the earlier static composition. Generation details are recorded in `assets/ARTWORK.md`.
+The supplied black-and-white designer logo geometry is preserved. The moon background and isolated transparent vortex were edited with imagegen from the supplied hero reference; the planetary horizon and a transparent cratered planet were generated separately. All use optimized responsive variants. The moon background has no baked satellite planets or orbit lines. Separate textured planets follow CSS orbits lasting 900, 1200, 1500, and 1800 seconds, with counterrotation keeping their lighting direction fixed. The same planet artwork supplies the small moons on the cards.
+
+The three decorative glass panels are real HTML and CSS, floating independently in front of the moon while the separate vortex layer rotates gently. Typography, branding, links, and buttons remain real HTML. The sharing image retains the earlier static composition. Generation details are recorded in `assets/ARTWORK.md`.
 
 Inter is self-hosted. Font license files are retained in `assets/`.

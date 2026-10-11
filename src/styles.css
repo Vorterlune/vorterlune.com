@@ -227,18 +227,94 @@
 .scene-vortex {
   position: absolute;
   z-index: 1;
-  left: 31%;
-  top: 15%;
-  width: 68%;
-  height: 68%;
+  left: 26.5%;
+  top: 12.5%;
+  width: 67%;
+  height: 67%;
   object-fit: contain;
-  opacity: 0.84;
+  opacity: 0.88;
   animation: vortex-spin 200s linear infinite;
+}
+/* Fixed guides and separate carriers keep the moon still as its satellites orbit. */
+.orbit-guide {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 48%;
+  width: calc(var(--orbit-radius) * 2);
+  height: calc(var(--orbit-radius) * 2);
+  border: 1px solid #ffffff24;
+  border-left-color: #ffffff45;
+  border-bottom-color: #ffffff38;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.orbit-guide--outer {
+  --orbit-radius: 47cqi;
+}
+.orbit-guide--middle {
+  --orbit-radius: 44cqi;
+  border-top-color: #ffffff0c;
+  border-left-color: transparent;
+}
+.orbit-guide--inner {
+  --orbit-radius: 42cqi;
+  border-top-color: #ffffff0c;
+  border-left-color: transparent;
+}
+.orbit-carrier {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 48%;
+  width: 0;
+  height: 0;
+  transform: rotate(var(--orbit-start));
+  animation: planet-orbit var(--orbit-period) linear infinite;
+}
+.orbit-carrier--one {
+  --orbit-radius: 47cqi;
+  --orbit-start: -52deg;
+  --orbit-period: 900s;
+  --planet-size: 3.5cqi;
+}
+.orbit-carrier--two {
+  --orbit-radius: 42cqi;
+  --orbit-start: 60deg;
+  --orbit-period: 1200s;
+  --planet-size: 4.6cqi;
+}
+.orbit-carrier--three {
+  --orbit-radius: 44cqi;
+  --orbit-start: -118deg;
+  --orbit-period: 1500s;
+  --planet-size: 3.5cqi;
+}
+.orbit-carrier--four {
+  --orbit-radius: 44cqi;
+  --orbit-start: 95deg;
+  --orbit-period: 1800s;
+  --planet-size: 12cqi;
+}
+.orbit-position {
+  position: absolute;
+  left: calc(var(--planet-size) / -2);
+  top: calc(-1 * var(--orbit-radius) - var(--planet-size) / 2);
+  width: var(--planet-size);
+  height: var(--planet-size);
+}
+.orbit-planet {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(-0.15cqi 0 0.35cqi #ffffff30);
+  transform: rotate(calc(-1 * var(--orbit-start)));
+  animation: planet-counter-orbit var(--orbit-period) linear infinite;
 }
 /* A separate wrapper lets the whole card float without detaching its content. */
 .scene-card {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   animation: card-float 12s ease-in-out infinite;
   --float-rise: -1.4cqi;
   --float-drift: 0.45cqi;
@@ -249,14 +325,14 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border: 1px solid #ffffff70;
-  border-top-color: #ffffffc0;
-  border-left-color: #ffffffa0;
+  border: 0.15cqi solid #ffffff65;
+  border-top-color: #ffffffd6;
+  border-left-color: #ffffffbd;
   border-radius: 2.2cqi;
-  background: linear-gradient(135deg, #292929e6, #080808f7 48%, #030303fa);
+  background: linear-gradient(135deg, #282828, #080808 48%, #020202);
   box-shadow:
-    inset 0 1px 1px #ffffff40,
-    0 2.2cqi 5cqi #0008;
+    inset 0 1px 1px #ffffff50,
+    0 2.5cqi 4.5cqi #000b;
   transform-origin: center;
 }
 .scene-card-surface::before {
@@ -266,17 +342,17 @@
   pointer-events: none;
   background: linear-gradient(
     110deg,
-    #ffffff08,
-    transparent 27%,
-    #ffffff03 30%,
-    transparent 38%
+    #ffffff0d,
+    transparent 22%,
+    #ffffff05 25%,
+    transparent 43%
   );
 }
 .scene-card--main {
   left: 30%;
   top: 29%;
-  width: 48%;
-  height: 46%;
+  width: 50%;
+  height: 43%;
   animation-duration: 13s;
   animation-delay: -3s;
 }
@@ -284,18 +360,19 @@
   transform: rotate(-4deg) skewX(-9deg);
   background: linear-gradient(
     112deg,
-    #242424ed,
-    #080808b0 34%,
-    #05050515 72%,
-    #10101040
+    #252525 0%,
+    #060606fa 25%,
+    #030303c0 42%,
+    #03030308 66%,
+    #02020215 84%
   );
 }
 .scene-card--ideas {
-  z-index: 4;
+  z-index: 5;
   left: 19%;
-  top: 61%;
+  top: 59%;
   width: 28%;
-  height: 23%;
+  height: 25%;
   animation-duration: 9s;
   animation-delay: -5s;
   --float-rise: -2cqi;
@@ -306,11 +383,11 @@
   transform: rotate(12deg) skewX(4deg);
 }
 .scene-card--code {
-  z-index: 3;
-  left: 48.5%;
-  top: 60%;
-  width: 38%;
-  height: 32%;
+  z-index: 4;
+  left: 47.5%;
+  top: 57.5%;
+  width: 40%;
+  height: 34%;
   animation-duration: 11s;
   animation-delay: -1s;
   --float-rise: -1.7cqi;
@@ -368,18 +445,17 @@
   position: absolute;
   right: 14%;
   top: 35%;
-  width: 4.2cqi;
-  height: 4.2cqi;
-  border-radius: 50%;
-  box-shadow: inset 0.8cqi -0.3cqi 0.2cqi #e4e4e4;
-  filter: drop-shadow(-0.3cqi 0 0.7cqi #ffffff35);
-  transform: rotate(-24deg);
+  width: 6.4cqi;
+  height: 6.4cqi;
+  object-fit: contain;
+  filter: brightness(1.12) drop-shadow(-0.3cqi 0 0.7cqi #ffffff20);
+  transform: rotate(-18deg);
 }
 .scene-card--code .card-crescent {
   top: auto;
   bottom: 10%;
   right: 10%;
-  transform: rotate(168deg);
+  transform: rotate(160deg);
 }
 .scene-dash {
   display: block;
@@ -456,6 +532,22 @@
 @keyframes vortex-spin {
   to {
     transform: rotate(360deg);
+  }
+}
+@keyframes planet-orbit {
+  from {
+    transform: rotate(var(--orbit-start));
+  }
+  to {
+    transform: rotate(calc(var(--orbit-start) + 360deg));
+  }
+}
+@keyframes planet-counter-orbit {
+  from {
+    transform: rotate(calc(-1 * var(--orbit-start)));
+  }
+  to {
+    transform: rotate(calc(-1 * var(--orbit-start) - 360deg));
   }
 }
 
@@ -578,6 +670,10 @@
   }
   .scene-card--ideas {
     left: 21.5%;
+  }
+  .scene-card--code {
+    left: 46%;
+    width: 39%;
   }
   .project-dialog {
     padding: 42px 24px 28px;
