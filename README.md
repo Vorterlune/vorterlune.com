@@ -1,47 +1,66 @@
 # Vorterlune
 
-A responsive, static HTML website for the Vorterlune software studio.
+A responsive, static HTML website for the independent Vorterlune software studio. The monochrome design pairs the supplied white logo with original moon/vortex and planetary-horizon artwork. Content covers the studio's open-source work, products, experiments, and current Idiom and Notes projects.
 
-## Preview locally
+## Develop locally
 
-Serve the repository with any static server. For example:
+Use Node.js 22 or newer. Tailwind CSS and its CLI are pinned in `package.json`; `package-lock.json` records the complete dependency tree. Follow the [Tailwind CLI workflow](https://tailwindcss.com/docs/installation/tailwind-cli) through these commands:
 
 ```sh
+npm ci
+npm run build
 python3 -m http.server 4173
 ```
 
-Open <http://localhost:4173>. There is no build step or runtime dependency.
+Open <http://localhost:4173>. To rebuild styles while editing, run this command in a second terminal:
 
-## Files
+```sh
+npm run dev:css
+```
 
-- `index.html`: page content, project details, and metadata.
-- `styles.css`: responsive styling, project interface previews, and animations.
-- `script.js`: stars, motion preferences, subtle pointer parallax, and accessible project dialogs.
-- `assets/`: supplied designer logos, self-hosted fonts, and studio illustrations.
+Edit utility classes in `index.html` and theme definitions, artwork layering, or animation rules in `src/styles.css`. Keep full utility class names in source so Tailwind can discover them. Do not hand-edit the generated root `styles.css`.
+
+Before committing, run `npm run build` and include the generated `styles.css` with source changes. CI installs the locked dependencies, rebuilds CSS, and fails when the committed output is stale. The site itself has no JavaScript framework, stylesheet CDN, or runtime package dependency.
+
+## Files and content
+
+- `index.html`: semantic page content, project details, navigation, and search/sharing metadata.
+- `src/styles.css`: Tailwind import, shared theme, decorative composition, and motion rules.
+- `styles.css`: compiled production stylesheet, committed for GitHub Pages.
+- `script.js`: mobile navigation, accessible project dialogs, and motion preferences.
+- `assets/`: supplied designer logos, self-hosted fonts, optimized artwork, and sharing imagery.
 - `robots.txt` and `sitemap.xml`: crawler access and the canonical page inventory.
 
-The project previews are HTML/CSS interpretations of the supplied reference. Project cards open descriptions because the project repositories are not public. The GitHub links point to the Vorterlune organization.
-
-## Publish
-
-GitHub Pages publishes `main` from the repository root at <https://vorterlune.com/>. Pushing to `main` triggers a deployment. `CNAME` preserves the custom domain, and `.nojekyll` disables unnecessary Jekyll processing. HTTPS is enforced, and `www.vorterlune.com` redirects to the canonical domain.
-
-## Search and sharing
-
-The homepage includes a descriptive title and meta description, a canonical URL, Open Graph and Twitter sharing metadata, and JSON-LD for the Vorterlune website and studio. Sharing previews reuse the existing square studio illustration. All descriptions are present in static HTML; no JavaScript is needed to read the studio or project summaries.
-
-When adding a public page, give it a unique title, description, and canonical URL, link to it from the site, and add its canonical URL to `sitemap.xml`. Keep structured data consistent with visible content. The sitemap intentionally omits `lastmod` because there is no automated process to maintain it accurately.
-
-To track indexing, verify the domain in [Google Search Console](https://search.google.com/search-console) and submit `https://vorterlune.com/sitemap.xml`. Site files alone do not verify ownership or submit the sitemap to a Search Console account.
+Project summaries remain in the initial HTML. The project cards provide detail dialogs because the project repositories are not public. GitHub and connection links point to the Vorterlune organization. Preserve the existing public anchors when changing section names.
 
 ## Accessibility and motion
 
-Navigation and project details work with a keyboard. Native dialogs support Escape and return focus to the project card. A skip link bypasses navigation. The footer provides a motion toggle. Animations respect `prefers-reduced-motion` and pause when the page is hidden or the hero is outside the viewport.
+Below 768px, navigation uses a hamburger disclosure with large tap targets. It closes after selecting a link, clicking outside, pressing Escape, or switching to desktop; Escape returns focus to the toggle. Without JavaScript, the navigation links stay visible. A skip link bypasses the header. Native project dialogs support Escape, labeled close controls, and focus return to their opener. Essential descriptions remain readable without opening a dialog.
 
-## Artwork
+The mobile hero centers its copy and places the artwork before a full-width Explore Our Work button. The secondary GitHub hero button and studio stats appear from 768px upward; GitHub remains available through navigation and the footer on phones.
 
-The original designer SVG geometry and colors are preserved, with empty artboard space removed. The hero is an arched night-sky window built with CSS and inline SVG, with twinkling stars, shooting stars, a floating crescent moon, and a distant skyline. Its frame stays still while the sky responds subtly to the pointer. The original studio illustration remains the social sharing image; its generation brief is recorded in `assets/ARTWORK.md`.
+The footer motion control pauses animations for the current visit. Animations respect `prefers-reduced-motion` and suspend while the page is hidden or artwork is offscreen. This includes the floating cards, spinning vortex, orbiting planets, and their counterrotation. Decorative artwork is hidden from assistive technology; meaningful content, headings, logos, and buttons remain separate HTML.
 
-The Studio section includes a philosophy panel with a separate night-studio illustration, `assets/studio-philosophy.webp`. It loads lazily, and its heading, copy, and motto remain accessible HTML. Its generation prompt is also recorded in `assets/ARTWORK.md`.
+Check desktop and mobile layouts, keyboard focus, reduced-motion behavior, and JavaScript-disabled rendering after changing the design. Test at 375px, 768px, 1280px, and 1440px, plus 200% browser zoom. Run mobile and desktop Lighthouse audits to assess accessibility, SEO, and loading performance; deployed field measurements are needed to confirm Core Web Vitals.
 
-Inter and Caveat are distributed under the SIL Open Font License; their license files are in `assets/`.
+## Publish
+
+GitHub Pages continues to publish `main` from the repository root at <https://vorterlune.com/>. The new validation workflow does not change deployment or upload a separate site artifact. Pushing to `main` triggers the existing deployment, so committed production CSS must be current. `CNAME` preserves the custom domain, and `.nojekyll` disables unnecessary Jekyll processing.
+
+After publishing, verify HTTPS, the canonical `www` redirect, the sitemap, and the social-image URL. Hosting and redirect settings remain managed by the existing Pages configuration.
+
+## Search and sharing
+
+The homepage has a descriptive title and meta description, a canonical URL, Open Graph and Twitter metadata, and JSON-LD for the website and studio. The 1200×630 sharing image uses the monochrome artwork, real logo, and headline. Keep structured data, sharing descriptions, and project statuses consistent with visible content; do not add unverified product or audience metrics.
+
+When adding a public page, give it a unique title, description, and canonical URL, link to it from the site, and add its canonical URL to `sitemap.xml`. The sitemap intentionally omits `lastmod` because there is no automated process to maintain it accurately.
+
+To track indexing, verify the domain in [Google Search Console](https://search.google.com/search-console) and submit `https://vorterlune.com/sitemap.xml`. Ownership verification and URL inspection require access to the site's Search Console account and are not performed by changing site files.
+
+## Artwork and fonts
+
+The supplied black-and-white designer logo geometry is preserved. The moon background and isolated transparent vortex were edited with imagegen from the supplied hero reference; the planetary horizon and a transparent cratered planet were generated separately. All use optimized responsive variants. The moon background has no baked satellite planets or orbit lines. Separate textured planets follow CSS orbits lasting 900, 1200, 1500, and 1800 seconds, with counterrotation keeping their lighting direction fixed. The same planet artwork supplies the small moons on the cards.
+
+The three decorative glass panels are real HTML and CSS, floating independently in front of the moon while the separate vortex layer rotates gently. Typography, branding, links, and buttons remain real HTML. The sharing image retains the earlier static composition. Generation details are recorded in `assets/ARTWORK.md`.
+
+Inter is self-hosted. Font license files are retained in `assets/`.

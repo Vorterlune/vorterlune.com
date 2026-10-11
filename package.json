@@ -1,0 +1,17 @@
+{
+  "name": "vorterlune-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The static Vorterlune software studio website.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tailwindcss -i ./src/styles.css -o ./styles.css --minify",
+    "dev:css": "tailwindcss -i ./src/styles.css -o ./styles.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.0",
+    "tailwindcss": "4.3.0"
+  }
+}
