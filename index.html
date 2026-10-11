@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#050505" />
+    <meta name="theme-color" content="#000000" />
     <meta name="color-scheme" content="dark" />
     <title>Vorterlune — Thoughtful Software &amp; Open Source</title>
     <meta
@@ -129,7 +129,7 @@
 
     <header class="relative z-20 border-b border-line">
       <div
-        class="mx-auto flex max-w-[1440px] flex-col items-start gap-6 px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-10 lg:px-16 lg:py-7"
+        class="header-inner mx-auto flex flex-col items-start gap-6 px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-10"
       >
         <a href="./" class="shrink-0 rounded-sm" aria-label="Vorterlune home"
           ><img
@@ -137,11 +137,11 @@
             alt="Vorterlune"
             width="869"
             height="202"
-            class="h-auto w-[190px] lg:w-[226px]"
+            class="header-wordmark h-auto w-[190px]"
         /></a>
         <nav
           aria-label="Main navigation"
-          class="flex w-full flex-wrap gap-x-6 gap-y-3 text-[13px] font-medium text-silver sm:w-auto sm:gap-x-6 sm:text-sm lg:gap-x-10"
+          class="header-nav flex w-full flex-wrap gap-x-6 gap-y-3 text-[13px] font-medium text-silver sm:w-auto sm:text-sm"
         >
           <a class="transition-colors hover:text-white" href="#projects"
             >Products</a
@@ -166,128 +166,98 @@
         class="hero relative isolate overflow-hidden"
         aria-labelledby="hero-title"
       >
-        <div
-          class="relative mx-auto max-w-[1440px] px-6 pt-16 sm:px-10 sm:pt-20 lg:px-16 lg:pt-32"
-        >
-          <div class="hero-copy relative z-10 max-w-[730px]">
-            <p class="eyebrow mb-7 sm:mb-9">
-              Ideas <span class="mx-2 text-neutral-600 sm:mx-4">/</span> Tools
-              <span class="mx-2 text-neutral-600 sm:mx-4">/</span> A brighter
-              tomorrow
+        <div class="hero-stage relative mx-auto">
+          <div class="hero-copy relative z-10">
+            <p class="hero-eyebrow font-semibold uppercase">
+              Ideas <span>/</span> Tools <span>/</span> A brighter tomorrow
             </p>
-            <h1
-              id="hero-title"
-              class="text-[clamp(2.7rem,5.2vw,4.7rem)] leading-[1.09] font-semibold tracking-[-0.055em]"
-            >
+            <h1 id="hero-title" class="hero-title font-semibold">
               <span class="block">Thoughtful software,</span
               ><span class="block">built with intent.</span>
             </h1>
-            <p
-              class="mt-7 max-w-[540px] text-[17px] leading-[1.7] text-silver sm:text-xl lg:mt-8"
-            >
+            <p class="hero-description text-silver">
               An independent software studio exploring React Native UI and
               local-first tools for connected ideas.
             </p>
-            <div class="mt-9 flex flex-wrap gap-3 sm:gap-4 lg:mt-10">
+            <div class="hero-actions flex flex-wrap">
               <a
-                class="inline-flex min-h-14 items-center justify-center gap-5 rounded-lg border border-white bg-white px-6 text-sm font-semibold text-black transition-colors hover:border-neutral-300 hover:bg-neutral-300 sm:px-7 sm:text-base"
+                class="hero-button hero-button-primary inline-flex items-center justify-center rounded-lg border border-white bg-white font-semibold text-black transition-colors hover:border-neutral-300 hover:bg-neutral-300"
                 href="#projects"
-                >Explore Our Work<svg class="icon size-5" aria-hidden="true">
+                >Explore Our Work<svg class="icon" aria-hidden="true">
                   <use href="#icon-arrow" /></svg
               ></a>
               <a
-                class="inline-flex min-h-14 items-center justify-center gap-3 rounded-lg border border-neutral-500 bg-black/60 px-6 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-neutral-900 sm:px-7 sm:text-base"
+                class="hero-button hero-button-secondary inline-flex items-center justify-center rounded-lg border border-neutral-500 bg-black/60 font-semibold text-white transition-colors hover:border-white hover:bg-neutral-900"
                 href="https://github.com/Vorterlune"
                 target="_blank"
                 rel="noopener noreferrer"
-                ><svg class="size-5" aria-hidden="true">
-                  <use href="#icon-github" /></svg
-                >View on GitHub<span class="sr-only">
-                  (opens in a new tab)</span
-                ></a
+                ><svg aria-hidden="true"><use href="#icon-github" /></svg>View
+                on GitHub<span class="sr-only"> (opens in a new tab)</span></a
               >
             </div>
-            <div
-              class="mt-14 flex items-center gap-3 text-[11px] font-medium tracking-[0.16em] text-muted uppercase lg:mt-20"
-            >
-              <span
-                class="size-1.5 rounded-full bg-neutral-400"
-                aria-hidden="true"
-              ></span
-              >Independent. Curious. Open source.
-            </div>
+            <dl class="hero-facts flex" aria-label="About the studio">
+              <div>
+                <dt>Projects</dt>
+                <dd>2</dd>
+              </div>
+              <div>
+                <dt>Independent studio</dt>
+                <dd>1</dd>
+              </div>
+              <div>
+                <dt>Possibilities</dt>
+                <dd aria-label="Endless">∞</dd>
+              </div>
+            </dl>
           </div>
           <div class="hero-art" data-motion-scene aria-hidden="true">
-            <img
-              src="./assets/space-hero-1600.webp"
-              srcset="
-                ./assets/space-hero-640.webp   640w,
-                ./assets/space-hero-1024.webp 1024w,
-                ./assets/space-hero-1600.webp 1600w
-              "
-              sizes="(min-width: 1024px) 1000px, (min-width: 640px) 850px, 680px"
-              width="1600"
-              height="1067"
-              fetchpriority="high"
-              decoding="async"
-              alt=""
-              class="hero-cosmos"
-            />
-            <svg class="hero-orbit" viewBox="0 0 850 750" focusable="false">
-              <ellipse
-                cx="438"
-                cy="354"
-                rx="368"
-                ry="302"
-                transform="rotate(-28 438 354)"
+            <div class="hero-composition">
+              <img
+                src="./assets/hero-reference-1600.webp"
+                srcset="
+                  ./assets/hero-reference-768.webp   768w,
+                  ./assets/hero-reference-1200.webp 1200w,
+                  ./assets/hero-reference-1600.webp 1600w
+                "
+                sizes="(min-width: 1710px) 1010px, (min-width: 1024px) 59vw, (min-width: 640px) 760px, 540px"
+                width="1600"
+                height="1600"
+                fetchpriority="high"
+                decoding="async"
+                alt=""
+                class="hero-cosmos"
               />
-              <circle cx="167" cy="126" r="6" />
-              <circle cx="138" cy="580" r="5" />
-              <circle cx="763" cy="209" r="8" />
-            </svg>
-            <div class="scene-card scene-card-main">
               <img
                 src="./assets/logo-white.png"
                 width="869"
                 height="202"
                 alt=""
-                class="w-[150px]"
+                class="scene-wordmark"
               />
-              <div
-                class="mt-10 font-mono text-[19px] leading-[1.55] text-neutral-300"
-              >
-                Build<br />Experiment<br />Improve<br />Repeat
+              <div class="scene-manifesto font-mono text-neutral-300">
+                Build<br />Experiment<br />Improve<br />Repeat<span
+                  class="scene-dash"
+                ></span>
               </div>
-              <span class="mt-5 block h-px w-5 bg-neutral-400"></span>
-              <div class="card-vortex"></div>
-            </div>
-            <div class="scene-card scene-card-ideas">
-              <p class="font-mono text-lg leading-[1.5] text-neutral-300">
-                Ideas<br />Tools<br />People<br />Progress
-              </p>
-              <span class="mt-4 block h-px w-5 bg-neutral-400"></span
-              ><span class="small-moon"></span>
-            </div>
-            <div class="scene-card scene-card-code">
-              <div class="flex gap-1.5 border-b border-white/10 px-4 py-3">
-                <i class="size-1.5 rounded-full bg-neutral-300"></i
-                ><i class="size-1.5 rounded-full bg-neutral-300"></i
-                ><i class="size-1.5 rounded-full bg-neutral-300"></i>
+              <div class="scene-ideas font-mono text-neutral-300">
+                Ideas<br />Tools<br />People<br />Progress<span
+                  class="scene-dash"
+                ></span>
               </div>
-              <div
-                class="px-6 py-5 font-mono text-[12px] leading-[1.9] text-neutral-400"
-              >
+              <div class="scene-code font-mono text-neutral-400">
                 <span class="text-neutral-500">// A more capable tomorrow</span
                 ><br />const ideas = new Possibility();<br />while (curiosity)
-                {<br />&nbsp;&nbsp;create();<br />&nbsp;&nbsp;improve();<br />&nbsp;&nbsp;share();<br />}
+                {<br />&nbsp;&nbsp;create();<br />&nbsp;&nbsp;improve();<br />&nbsp;&nbsp;share();<br />}<span
+                  class="scene-dash"
+                ></span>
               </div>
             </div>
-            <p class="scene-motto">
-              Small<br />ideas.<br />Bigger<br />tomorrows.<span
-                class="mt-4 block h-px w-5 bg-neutral-500"
-              ></span>
-            </p>
           </div>
+          <p class="scene-motto" aria-hidden="true">
+            Small<br />ideas.<br />Big<br />tomorrows.<span
+              class="scene-dash"
+            ></span>
+          </p>
         </div>
       </section>
 

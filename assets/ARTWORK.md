@@ -1,14 +1,14 @@
 # Monochrome space artwork
 
-The two original scenes were generated with the built-in imagegen tool for the Vorterlune redesign. They contain no text, branding, cards, or UI; all page copy and decorative card contents are rendered separately in HTML. Output was visually inspected, resized with Lanczos, and encoded as WebP at quality 84. No third-party stock artwork is used.
+The monochrome scenes were generated with the built-in imagegen tool for the Vorterlune redesign. The current hero was edited from the user's supplied design reference to preserve its moon, flowing spiral, and three glass-panel composition. Decorative panel surfaces are part of the raster artwork; all typography and branding remain separate HTML. The horizon contains no text, branding, or interface imagery. Outputs were visually inspected and resized with Lanczos. The current hero is encoded as WebP at quality 86; the horizon uses quality 84. No third-party stock artwork is used.
 
 ## Current assets
 
 | Asset                     | Dimensions      | Purpose                          |
 | ------------------------- | --------------- | -------------------------------- |
-| `space-hero-640.webp`     | 640 × 427       | Small hero                       |
-| `space-hero-1024.webp`    | 1024 × 683      | Medium hero                      |
-| `space-hero-1600.webp`    | 1600 × 1067     | Large hero                       |
+| `hero-reference-768.webp`  | 768 × 768       | Small hero                       |
+| `hero-reference-1200.webp` | 1200 × 1200     | Medium hero                      |
+| `hero-reference-1600.webp` | 1600 × 1600     | Large hero                       |
 | `space-horizon-768.webp`  | 768 × 256       | Small horizon                    |
 | `space-horizon-1280.webp` | 1280 × 427      | Medium horizon                   |
 | `space-horizon-1920.webp` | 1920 × 640      | Large horizon                    |
@@ -17,13 +17,23 @@ The two original scenes were generated with the built-in imagegen tool for the V
 | `organization-logo.png`   | 512 × 512       | Original black symbol on white   |
 | `social-preview.jpg`      | 1200 × 630      | Social sharing image             |
 
-The hero source was 1536 × 1024 and the horizon source was 2172 × 724. Each responsive family preserves its source aspect ratio, subject only to whole-pixel rounding. The 1600px hero variant is a small upscale of the original.
+The current hero source is 1254 × 1254 (verified from the saved PNG; the generation preview displayed 1280 square), and the horizon source is 2172 × 724. Each responsive family preserves its source aspect ratio, subject only to whole-pixel rounding. The 1600px hero variant is upscaled from the original. The previous 1536 × 1024 hero remains in `space-hero-640.webp`, `space-hero-1024.webp`, and `space-hero-1600.webp` as prior-iteration assets.
 
 `logo-white.png` is an unmodified copy of the user's `Final/PNG Files (Transparent Background)/Logo-H43.png`. The favicon uses the unchanged path geometry from `Final/Icon size/SVG Files (Transparent Background)/Logo H44.svg`, scaled with margins on a black background. The organization logo uses the unchanged path geometry from `Logo H46.svg`, rendered on a white square with 64px margins.
 
 The social image composites the generated hero, the real white wordmark, and the self-hosted Inter font. Its headline is “Thoughtful software, built with intent.”; text and branding are not generated. Pillow was used only for deterministic resizing, encoding, and this requested composition; macOS `sips` rendered the organization SVG.
 
-## Hero generation prompt
+## Current hero reference edit
+
+Tool: built-in imagegen. Input role: edit target, supplied by the user as the desired hero design. Reference: `/var/folders/_9/pn95p16944d7s7mn2t16l17c0000gn/T/codex-clipboard-2c8702d2-a44a-4647-8a5e-366a26a3b560.png`.
+
+Saved source: `/Users/tianpok/.codex/generated_images/01a12bb5-5409-7df3-9e80-e51d78e43c52/exec-71abafff-2250-4b92-94a8-a9f3ddd3f2bb.png` (1254 × 1254).
+
+Edit brief: extract and closely reproduce the reference's right-hand decorative composition on a square black canvas: the large cratered moon, flowing silver spiral, fine orbital trails, small moons, and three overlapping dark glass panels. Remove all typography, logos, browser chrome, and left-hand website UI. Preserve the blank decorative panel surfaces so real text and the supplied logo can be positioned separately in HTML.
+
+The responsive family is a deterministic resize and WebP encoding of that saved output. The 1200 × 630 social image uses the same new scene, the supplied white wordmark, and real Inter text composited separately with Pillow; no typography or branding is generated.
+
+## Prior hero iteration: generation prompt
 
 Use case: stylized-concept. Asset type: high-end software studio website hero background, original raster artwork. Create a cinematic monochrome space composition in a 3:2 landscape canvas, approximately 1536x1024. Entirely black, white, and neutral grayscale. On the upper-left of the central composition, a large highly detailed cratered crescent moon with a thin bright sunlit rim; from its shadowed right edge a luminous swirling black-hole vortex arcs into the right-center of the frame, rendered with realistic subtle silver light trails and deep dark core. Delicate orbital ellipses, two tiny rocky moons, and a few sparse pinprick stars surround it. Premium science-fiction editorial realism with tactile crater detail, dramatic chiaroscuro, thin restrained glow, immense black negative space. Composition must be self-contained with planet and vortex fully inside the canvas: leave 10% pure black margin on all sides and fade all orbital trails smoothly into pure black edges. The artwork will sit to the right of real website text, so keep the leftmost quarter predominantly black. No text, no typography, no logo, no cards, no panels, no UI, no website screenshot, no browser frame, no colorful accents, no watermarks.
 

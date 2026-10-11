@@ -13,7 +13,7 @@
 @theme {
   --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  --color-ink: #050505;
+  --color-ink: #000000;
   --color-surface: #0c0c0d;
   --color-line: #29292b;
   --color-silver: #b8b8bc;
@@ -112,151 +112,189 @@
   }
 }
 
-/* The scene is decorative. Layout and content remain Tailwind utilities. */
+/* Scale the desktop composition as a whole to preserve the supplied design. */
+:root {
+  --hero-unit: min(1vw, 17.1px);
+}
+.header-inner {
+  max-width: 1710px;
+}
 .hero {
-  min-height: 740px;
   border-bottom: 1px solid #202022;
+  background: #000;
+}
+.hero-stage {
+  max-width: 1710px;
+  min-height: calc(var(--hero-unit) * 50.6);
+}
+.hero-copy {
+  padding-top: calc(var(--hero-unit) * 7.2);
+  margin-left: calc(var(--hero-unit) * 5.3);
+  width: calc(var(--hero-unit) * 54.4);
+}
+.hero-eyebrow {
+  margin-bottom: calc(var(--hero-unit) * 1.95);
+  color: #b9b9bd;
+  font-size: calc(var(--hero-unit) * 0.83);
+  line-height: 1.7;
+  letter-spacing: 0.26em;
+}
+.hero-eyebrow span {
+  margin-inline: calc(var(--hero-unit) * 1.15);
+  color: #aaa;
+}
+.hero-title {
+  font-size: calc(var(--hero-unit) * 4.9);
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+}
+.hero-description {
+  margin-top: calc(var(--hero-unit) * 1);
+  max-width: calc(var(--hero-unit) * 40.5);
+  font-size: calc(var(--hero-unit) * 1.65);
+  line-height: 1.43;
+}
+.hero-actions {
+  gap: calc(var(--hero-unit) * 1.5);
+  margin-top: calc(var(--hero-unit) * 1.7);
+}
+.hero-button {
+  min-height: calc(var(--hero-unit) * 4.4);
+  font-size: calc(var(--hero-unit) * 1.2);
+  gap: calc(var(--hero-unit) * 1.25);
+}
+.hero-button-primary {
+  width: calc(var(--hero-unit) * 17.2);
+}
+.hero-button-secondary {
+  width: calc(var(--hero-unit) * 16.2);
+  border-width: 2px;
+}
+.hero-button svg {
+  width: calc(var(--hero-unit) * 1.5);
+  height: calc(var(--hero-unit) * 1.5);
+  flex-shrink: 0;
+}
+.hero-facts {
+  gap: calc(var(--hero-unit) * 5);
+  margin-top: calc(var(--hero-unit) * 6.2);
+}
+.hero-facts > div {
+  width: calc(var(--hero-unit) * 8.2);
+  flex: none;
+  display: flex;
+  flex-direction: column;
+}
+.hero-facts dd {
+  order: -1;
+  font-size: calc(var(--hero-unit) * 2.9);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+.hero-facts dt {
+  margin-top: calc(var(--hero-unit) * 0.8);
+  color: #b0b0b4;
+  font-size: calc(var(--hero-unit) * 0.77);
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 .hero-art {
   position: absolute;
   z-index: 0;
-  width: 950px;
-  height: 735px;
-  top: 0;
-  right: -155px;
+  top: calc(var(--hero-unit) * -6);
+  left: calc(var(--hero-unit) * 39.24);
+  width: calc(var(--hero-unit) * 59.03);
+  aspect-ratio: 1;
   pointer-events: none;
+  container-type: inline-size;
   transform: translate(var(--scene-x, 0px), var(--scene-y, 0px));
 }
+.hero-composition {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: scene-drift 16s ease-in-out infinite;
+}
 .hero-cosmos {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.scene-wordmark {
   position: absolute;
-  width: 1100px;
-  max-width: none;
-  height: 735px;
-  top: -5px;
-  left: -85px;
-  object-fit: cover;
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    #000 24%,
-    #000 85%,
-    transparent 100%
-  );
+  left: 35.3%;
+  top: 32.5%;
+  width: 18.2%;
+  height: auto;
+  transform: rotate(-4deg) skewX(-7deg);
+  transform-origin: left top;
 }
-.hero-art::after {
-  content: "";
+.scene-manifesto {
   position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(ellipse, #fff1, transparent 65%);
+  left: 35.1%;
+  top: 42.4%;
+  font-size: 2.3cqi;
+  line-height: 1.42;
+  transform: rotate(-4deg) skewX(-7deg);
+  transform-origin: left top;
 }
-.hero-orbit {
+.scene-ideas {
   position: absolute;
-  width: 830px;
-  height: 732px;
-  top: 0;
-  left: 12px;
-  overflow: visible;
+  left: 23.2%;
+  top: 61.5%;
+  font-size: 2.35cqi;
+  line-height: 1.4;
+  transform: rotate(10deg);
+  transform-origin: left top;
 }
-.hero-orbit ellipse {
-  fill: none;
-  stroke: #a0a0a0;
-  stroke-opacity: 0.24;
-  stroke-width: 1;
-}
-.hero-orbit circle {
-  fill: #bababa;
-  stroke: #f5f5f5;
-  stroke-width: 1.8;
-  filter: drop-shadow(0 0 6px #fff8);
-}
-.scene-card {
+.scene-code {
   position: absolute;
-  overflow: hidden;
-  border: 1px solid #8a8a8a;
-  border-bottom-color: #3c3c3c;
-  border-right-color: #4b4b4b;
-  border-radius: 14px;
-  background: linear-gradient(130deg, #242424ef, #0a0a0af5 42%, #070707ed);
-  box-shadow:
-    0 16px 60px #0009,
-    inset 0 1px 1px #fff3;
+  left: 53.5%;
+  top: 62.8%;
+  font-size: 1.66cqi;
+  line-height: 1.65;
+  white-space: nowrap;
+  transform: rotate(8deg) skewX(-1deg);
+  transform-origin: left top;
 }
-.scene-card-main {
-  z-index: 2;
-  top: 178px;
-  left: 345px;
-  width: 300px;
-  height: 345px;
-  padding: 29px;
-  rotate: -6deg;
-  animation: float-main 13s ease-in-out infinite;
-}
-.card-vortex {
-  position: absolute;
-  right: -93px;
-  bottom: -10px;
-  width: 260px;
-  height: 260px;
-  border: 1px solid #fff5;
-  border-radius: 50%;
-  box-shadow:
-    -10px 0 15px -11px white,
-    -20px 0 0 -6px #fff1,
-    -30px 0 0 -13px #fff2,
-    -46px 0 0 -27px #fff3,
-    inset 4px 0 16px #fff3;
-  transform: rotate(-35deg) scaleX(0.7);
-}
-.card-vortex::after {
-  content: "";
-  position: absolute;
-  inset: 39px;
-  border-radius: 50%;
-  border-left: 2px solid #ddd;
-  box-shadow:
-    -8px 0 18px -4px #ccc7,
-    inset 8px 0 18px -5px #ddd7;
-}
-.scene-card-ideas {
-  z-index: 4;
-  top: 452px;
-  left: 242px;
-  width: 193px;
-  padding: 26px 27px;
-  rotate: 10deg;
-  animation: float-small 11s ease-in-out infinite;
-}
-.small-moon {
-  position: absolute;
-  right: 18px;
-  top: 69px;
-  width: 29px;
-  height: 40px;
-  border-radius: 50%;
-  box-shadow: -6px 2px 2px 0 #ddd;
-  rotate: -12deg;
-  filter: drop-shadow(-3px 0 5px #fff5);
-}
-.scene-card-code {
-  z-index: 5;
-  top: 446px;
-  left: 460px;
-  width: 270px;
-  rotate: 7deg;
-  animation: float-small 15s -3s ease-in-out infinite;
+.scene-dash {
+  display: block;
+  width: 1em;
+  height: 1px;
+  margin-top: 1em;
+  background: #a0a0a5;
 }
 .scene-motto {
   position: absolute;
-  z-index: 6;
-  right: 114px;
-  top: 605px;
-  font-size: 8px;
+  z-index: 1;
+  left: calc(var(--hero-unit) * 91.8);
+  top: calc(var(--hero-unit) * 40.1);
+  font-size: calc(var(--hero-unit) * 0.75);
   font-weight: 600;
-  line-height: 1.9;
+  line-height: 1.95;
   letter-spacing: 0.23em;
   text-transform: uppercase;
-  color: #aaa;
+  color: #b0b0b4;
+}
+@media (min-width: 1024px) {
+  .hero-facts dt {
+    white-space: nowrap;
+  }
+  .header-inner {
+    min-height: calc(var(--hero-unit) * 7.03);
+    padding: calc(var(--hero-unit) * 1.4) calc(var(--hero-unit) * 4.9);
+  }
+  .header-wordmark {
+    width: calc(var(--hero-unit) * 16.2);
+  }
+  .header-nav {
+    gap: calc(var(--hero-unit) * 3);
+    font-size: calc(var(--hero-unit) * 1.1);
+  }
 }
 .connect {
   min-height: 330px;
@@ -282,151 +320,134 @@
   inset: 0;
   background: linear-gradient(transparent 10%, #05050555 50%, #050505 100%);
 }
-.motion-paused .scene-card {
+.motion-paused .hero-composition {
   animation-play-state: paused;
 }
-@keyframes float-main {
+@keyframes scene-drift {
   0%,
   100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-9px);
-  }
-}
-@keyframes float-small {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(8px);
+    transform: translateY(-5px);
   }
 }
 
-@media (min-width: 1440px) {
-  .hero-art {
-    right: -112px;
-  }
-}
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .hero {
-    min-height: 670px;
-  }
-  .hero-art {
-    right: -266px;
-    top: -12px;
-    scale: 0.9;
-    transform-origin: top right;
+@media (max-width: 1023px) {
+  .hero-stage {
+    min-height: 0;
   }
   .hero-copy {
-    max-width: 625px;
+    width: auto;
+    margin-inline: 40px;
+    padding-top: 68px;
   }
-  .hero-copy > p:not(.eyebrow) {
-    max-width: 440px;
+  .hero-eyebrow {
+    margin-bottom: 28px;
+    font-size: 10px;
   }
-}
-@media (max-width: 1023px) {
-  .hero {
-    min-height: 0;
+  .hero-eyebrow span {
+    margin-inline: 12px;
+  }
+  .hero-title {
+    font-size: clamp(42px, 6.3vw, 62px);
+    line-height: 1.08;
+  }
+  .hero-description {
+    margin-top: 26px;
+    max-width: 610px;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  .hero-actions {
+    margin-top: 30px;
+    gap: 16px;
+  }
+  .hero-button {
+    min-height: 58px;
+    width: auto;
+    padding-inline: 26px;
+    gap: 20px;
+    font-size: 15px;
+  }
+  .hero-button svg {
+    width: 20px;
+    height: 20px;
+  }
+  .hero-facts {
+    margin-top: 48px;
+    gap: 52px;
+  }
+  .hero-facts > div {
+    width: auto;
+    min-width: 100px;
+  }
+  .hero-facts dd {
+    font-size: 36px;
+  }
+  .hero-facts dt {
+    margin-top: 9px;
+    font-size: 9px;
   }
   .hero-art {
     position: relative;
-    margin: -22px auto 0;
-    top: 0;
-    right: auto;
     left: 50%;
-    width: 850px;
-    height: 620px;
+    top: auto;
+    width: 760px;
+    margin-top: -40px;
+    margin-bottom: -25px;
     transform: translateX(-50%);
   }
-  .hero-cosmos {
-    width: 1050px;
-    height: 700px;
-    top: -40px;
-    left: -120px;
-  }
-  .hero-orbit {
-    top: -65px;
-    left: -35px;
-  }
-  .scene-card-main {
-    top: 106px;
-    left: 280px;
-  }
-  .scene-card-ideas {
-    top: 364px;
-    left: 172px;
-  }
-  .scene-card-code {
-    top: 372px;
-    left: 430px;
-  }
   .scene-motto {
-    top: 525px;
-    right: 90px;
+    display: none;
   }
 }
 @media (max-width: 639px) {
-  .eyebrow {
+  .hero-copy {
+    margin-inline: 24px;
+    padding-top: 54px;
+  }
+  .hero-eyebrow {
     font-size: 8px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.19em;
   }
-  .hero-art {
-    width: 640px;
-    height: 455px;
-    margin-top: 10px;
+  .hero-eyebrow span {
+    margin-inline: 7px;
   }
-  .hero-cosmos {
-    width: 740px;
-    height: 493px;
-    top: -8px;
-    left: -59px;
+  .hero-title {
+    font-size: clamp(39px, 10.6vw, 58px);
   }
-  .hero-orbit {
-    width: 610px;
-    height: 535px;
-    top: -35px;
-    left: 5px;
-    opacity: 0.6;
+  .hero-description {
+    font-size: 17px;
   }
-  .scene-card-main {
-    width: 235px;
-    height: 260px;
-    top: 94px;
-    left: 220px;
-    padding: 22px;
+  .hero-actions {
+    gap: 12px;
   }
-  .scene-card-main > div:not(.card-vortex) {
-    margin-top: 24px;
-    font-size: 15px;
-  }
-  .scene-card-main > img {
-    width: 127px;
-  }
-  .card-vortex {
-    width: 210px;
-    height: 210px;
-    right: -96px;
-    bottom: -28px;
-  }
-  .scene-card-ideas {
-    top: 270px;
-    left: 138px;
-    width: 153px;
-    padding: 19px 23px;
-  }
-  .scene-card-ideas p {
+  .hero-button {
+    min-height: 54px;
+    padding-inline: 22px;
     font-size: 14px;
   }
-  .small-moon {
-    top: 52px;
-    width: 23px;
-    height: 32px;
+  .hero-facts {
+    margin-top: 40px;
+    justify-content: space-between;
+    gap: 12px;
   }
-  .scene-card-code,
-  .scene-motto {
-    display: none;
+  .hero-facts > div {
+    min-width: 0;
+    max-width: 110px;
+  }
+  .hero-facts dd {
+    font-size: 32px;
+  }
+  .hero-facts dt {
+    font-size: 8px;
+    letter-spacing: 0.14em;
+  }
+  .hero-art {
+    width: 540px;
+    margin-top: -12px;
+    margin-bottom: -12px;
   }
   .project-dialog {
     padding: 42px 24px 28px;
