@@ -127,9 +127,9 @@
       </defs>
     </svg>
 
-    <header class="relative z-20 border-b border-line">
+    <header class="site-header relative z-20 border-b border-line">
       <div
-        class="header-inner mx-auto flex flex-col items-start gap-6 px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-10"
+        class="header-inner mx-auto flex flex-wrap items-center justify-between gap-x-6 gap-y-4 px-5 py-4 sm:px-10 sm:py-6"
       >
         <a href="./" class="shrink-0 rounded-sm" aria-label="Vorterlune home"
           ><img
@@ -137,11 +137,26 @@
             alt="Vorterlune"
             width="869"
             height="202"
-            class="header-wordmark h-auto w-[190px]"
+            class="header-wordmark h-auto w-[170px] sm:w-[190px]"
         /></a>
+        <button
+          class="menu-toggle inline-flex size-11 flex-col items-center justify-center gap-[5px] rounded-lg text-white transition-colors hover:bg-white/5 md:hidden"
+          type="button"
+          data-menu-toggle
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+          aria-label="Open navigation"
+          hidden
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
         <nav
+          id="primary-navigation"
+          data-primary-navigation
           aria-label="Main navigation"
-          class="header-nav flex w-full flex-wrap gap-x-6 gap-y-3 text-[13px] font-medium text-silver sm:w-auto sm:text-sm"
+          class="header-nav flex w-full flex-wrap gap-x-6 gap-y-3 text-[13px] font-medium text-silver md:w-auto md:text-sm"
         >
           <a class="transition-colors hover:text-white" href="#projects"
             >Products</a
@@ -187,7 +202,7 @@
                   <use href="#icon-arrow" /></svg
               ></a>
               <a
-                class="hero-button hero-button-secondary inline-flex items-center justify-center rounded-lg border border-neutral-500 bg-black/60 font-semibold text-white transition-colors hover:border-white hover:bg-neutral-900"
+                class="hero-button hero-button-secondary inline-flex items-center justify-center rounded-lg border border-neutral-500 bg-black/60 font-semibold text-white transition-colors hover:border-white hover:bg-neutral-900 max-md:hidden"
                 href="https://github.com/Vorterlune"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -195,7 +210,10 @@
                 on GitHub<span class="sr-only"> (opens in a new tab)</span></a
               >
             </div>
-            <dl class="hero-facts flex" aria-label="About the studio">
+            <dl
+              class="hero-facts flex max-md:hidden"
+              aria-label="About the studio"
+            >
               <div>
                 <dt>Projects</dt>
                 <dd>2</dd>

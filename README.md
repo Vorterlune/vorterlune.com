@@ -27,7 +27,7 @@ Before committing, run `npm run build` and include the generated `styles.css` wi
 - `index.html`: semantic page content, project details, navigation, and search/sharing metadata.
 - `src/styles.css`: Tailwind import, shared theme, decorative composition, and motion rules.
 - `styles.css`: compiled production stylesheet, committed for GitHub Pages.
-- `script.js`: accessible project dialogs and motion preferences.
+- `script.js`: mobile navigation, accessible project dialogs, and motion preferences.
 - `assets/`: supplied designer logos, self-hosted fonts, optimized artwork, and sharing imagery.
 - `robots.txt` and `sitemap.xml`: crawler access and the canonical page inventory.
 
@@ -35,7 +35,9 @@ Project summaries remain in the initial HTML. The project cards provide detail d
 
 ## Accessibility and motion
 
-Navigation works with a keyboard and without JavaScript. A skip link bypasses the header. Native project dialogs support Escape, labeled close controls, and focus return to their opener. Essential descriptions remain readable without opening a dialog.
+Below 768px, navigation uses a hamburger disclosure with large tap targets. It closes after selecting a link, clicking outside, pressing Escape, or switching to desktop; Escape returns focus to the toggle. Without JavaScript, the navigation links stay visible. A skip link bypasses the header. Native project dialogs support Escape, labeled close controls, and focus return to their opener. Essential descriptions remain readable without opening a dialog.
+
+The mobile hero centers its copy and places the artwork before a full-width Explore Our Work button. The secondary GitHub hero button and studio stats appear from 768px upward; GitHub remains available through navigation and the footer on phones.
 
 The footer motion control pauses animations for the current visit. Animations respect `prefers-reduced-motion` and suspend while the page is hidden or artwork is offscreen. This includes the floating cards, spinning vortex, orbiting planets, and their counterrotation. Decorative artwork is hidden from assistive technology; meaningful content, headings, logos, and buttons remain separate HTML.
 

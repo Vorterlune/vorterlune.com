@@ -87,6 +87,69 @@ motionPreference.addEventListener("change", updateMotion);
 document.addEventListener("visibilitychange", updateMotion);
 updateMotion();
 
+// Keep navigation available without JavaScript; enhance it as a disclosure on mobile.
+const siteHeader = document.querySelector(".site-header");
+const menuToggle = siteHeader?.querySelector("[data-menu-toggle]");
+const primaryNavigation = siteHeader?.querySelector(
+  "[data-primary-navigation]",
+);
+
+if (siteHeader && menuToggle && primaryNavigation) {
+  const desktopNavigation = window.matchMedia("(min-width: 48rem)");
+
+  function setNavigationOpen(open, restoreFocus = false) {
+    const isMobile = !desktopNavigation.matches;
+    const expanded = isMobile && open;
+
+    // Move focus before collapsing a region that currently contains it.
+    if (!expanded) {
+      if (
+        isMobile &&
+        (restoreFocus || primaryNavigation.contains(document.activeElement))
+      ) {
+        menuToggle.focus({ preventScroll: true });
+      } else if (!isMobile && document.activeElement === menuToggle) {
+        primaryNavigation
+          .querySelector("a[href]")
+          ?.focus({ preventScroll: true });
+      }
+    }
+
+    siteHeader.classList.toggle("menu-open", expanded);
+    menuToggle.setAttribute("aria-expanded", String(expanded));
+    menuToggle.setAttribute(
+      "aria-label",
+      expanded ? "Close navigation" : "Open navigation",
+    );
+  }
+
+  menuToggle.addEventListener("click", () => {
+    setNavigationOpen(!siteHeader.classList.contains("menu-open"));
+  });
+  primaryNavigation.addEventListener("click", (event) => {
+    if (event.target.closest("a[href]")) setNavigationOpen(false);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && siteHeader.classList.contains("menu-open")) {
+      event.preventDefault();
+      setNavigationOpen(false, true);
+    }
+  });
+  document.addEventListener("click", (event) => {
+    if (
+      siteHeader.classList.contains("menu-open") &&
+      !siteHeader.contains(event.target)
+    ) {
+      setNavigationOpen(false);
+    }
+  });
+  desktopNavigation.addEventListener("change", () => setNavigationOpen(false));
+
+  menuToggle.hidden = false;
+  setNavigationOpen(false);
+  siteHeader.classList.add("menu-enhanced");
+}
+
 // Keep descriptions and links in HTML; only reveal working dialog controls.
 const dialogStates = new Map();
 document.querySelectorAll("[data-project]").forEach((trigger) => {

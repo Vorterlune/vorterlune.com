@@ -26,7 +26,7 @@
     color-scheme: dark;
   }
   body {
-    min-width: 320px;
+    min-width: 0;
   }
   a,
   button {
@@ -118,6 +118,55 @@
 }
 .header-inner {
   max-width: 1710px;
+}
+.menu-toggle[hidden] {
+  display: none;
+}
+.menu-toggle span {
+  display: block;
+  width: 23px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+.menu-toggle[aria-expanded="true"] span:first-child {
+  transform: translateY(7px) rotate(45deg);
+}
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle[aria-expanded="true"] span:last-child {
+  transform: translateY(-7px) rotate(-45deg);
+}
+@media (width < 48rem) {
+  .site-header.menu-enhanced .header-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    padding: 8px 24px 20px;
+    border-bottom: 1px solid #353537;
+    background: #080808;
+    box-shadow: 0 24px 40px #0009;
+  }
+  .site-header.menu-open .header-nav {
+    display: flex;
+  }
+  .site-header.menu-enhanced .header-nav a {
+    padding: 16px 4px;
+    border-bottom: 1px solid #ffffff12;
+    font-size: 16px;
+  }
+  .site-header.menu-enhanced .header-nav a:last-child {
+    border-bottom: 0;
+  }
 }
 .hero {
   border-bottom: 1px solid #202022;
@@ -598,33 +647,49 @@
 
 @media (max-width: 1023px) {
   .hero-stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     min-height: 0;
+    padding-top: 52px;
+    padding-bottom: 40px;
   }
   .hero-copy {
-    width: auto;
-    margin-inline: 40px;
-    padding-top: 68px;
+    display: contents;
+  }
+  .hero-copy > * {
+    position: relative;
+    z-index: 1;
   }
   .hero-eyebrow {
-    margin-bottom: 28px;
+    grid-row: 1;
+    margin: 0 24px 20px;
     font-size: 10px;
+    text-align: center;
   }
   .hero-eyebrow span {
     margin-inline: 12px;
   }
   .hero-title {
+    grid-row: 2;
+    margin-inline: 24px;
     font-size: clamp(42px, 6.3vw, 62px);
     line-height: 1.08;
+    text-align: center;
   }
   .hero-description {
-    margin-top: 26px;
-    max-width: 610px;
-    font-size: 20px;
+    grid-row: 3;
+    justify-self: center;
+    margin: 20px 32px 0;
+    max-width: 480px;
+    font-size: 18px;
     line-height: 1.6;
+    text-align: center;
   }
   .hero-actions {
-    margin-top: 30px;
-    gap: 16px;
+    grid-row: 5;
+    justify-content: center;
+    margin: 0 32px;
+    gap: 14px;
   }
   .hero-button {
     min-height: 58px;
@@ -638,8 +703,11 @@
     height: 20px;
   }
   .hero-facts {
-    margin-top: 48px;
-    gap: 52px;
+    grid-row: 6;
+    justify-content: center;
+    margin: 36px 32px 0;
+    gap: 64px;
+    text-align: center;
   }
   .hero-facts > div {
     width: auto;
@@ -653,46 +721,57 @@
     font-size: 9px;
   }
   .hero-art {
+    grid-row: 4;
+    justify-self: center;
     position: relative;
-    left: 50%;
+    left: auto;
     top: auto;
-    width: 760px;
-    margin-top: -40px;
-    margin-bottom: -25px;
-    transform: translateX(-50%);
+    width: min(108vw, 680px);
+    margin-top: -24px;
+    margin-bottom: -12px;
+    transform: none;
   }
   .scene-motto {
     display: none;
   }
 }
 @media (max-width: 639px) {
-  .hero-copy {
-    margin-inline: 24px;
-    padding-top: 54px;
+  .hero-stage {
+    padding-top: 42px;
+    padding-bottom: 36px;
   }
   .hero-eyebrow {
-    font-size: 8px;
+    margin-bottom: 18px;
+    font-size: 8.5px;
     letter-spacing: 0.19em;
   }
   .hero-eyebrow span {
     margin-inline: 7px;
   }
   .hero-title {
-    font-size: clamp(39px, 10.6vw, 58px);
+    margin-inline: 20px;
+    font-size: clamp(28px, 8.6vw, 48px);
+    line-height: 1.12;
   }
   .hero-description {
-    font-size: 17px;
+    margin: 18px 28px 0;
+    max-width: 360px;
+    font-size: 15px;
   }
   .hero-actions {
-    gap: 12px;
+    flex-direction: column;
+    margin-inline: 24px;
+    gap: 10px;
   }
   .hero-button {
+    width: 100%;
     min-height: 54px;
     padding-inline: 22px;
     font-size: 14px;
+    border-radius: 12px;
   }
   .hero-facts {
-    margin-top: 40px;
+    margin: 32px 24px 0;
     justify-content: space-between;
     gap: 12px;
   }
@@ -701,17 +780,16 @@
     max-width: 110px;
   }
   .hero-facts dd {
-    font-size: 32px;
+    font-size: 28px;
   }
   .hero-facts dt {
     font-size: 8px;
     letter-spacing: 0.14em;
   }
   .hero-art {
-    left: 44%;
-    width: min(540px, 134vw);
-    margin-top: -12px;
-    margin-bottom: -12px;
+    width: 108vw;
+    margin-top: -20px;
+    margin-bottom: -8px;
   }
   .scene-card--ideas {
     left: 21.5%;
