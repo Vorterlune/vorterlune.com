@@ -519,8 +519,13 @@
   top: 52%;
   width: 29%;
   height: 22%;
-  /* Keep code glyphs still instead of re-rasterizing them on each frame. */
-  animation: none;
+  /* Keep the float, but stop rotating tiny code glyphs every frame. */
+  --float-rise: -1.8cqi;
+  --float-drift: 0.8cqi;
+  --float-tilt: 0deg;
+  animation-duration: 17s;
+  animation-delay: -8s;
+  will-change: transform;
 }
 .scene-card--editor .scene-card-surface {
   transform: rotate(-5deg) skewX(-8deg);
