@@ -519,11 +519,8 @@
   top: 52%;
   width: 29%;
   height: 22%;
-  animation-duration: 17s;
-  animation-delay: -8s;
-  --float-rise: -1.8cqi;
-  --float-drift: 0.8cqi;
-  --float-tilt: 1.3deg;
+  /* Keep code glyphs still instead of re-rasterizing them on each frame. */
+  animation: none;
 }
 .scene-card--editor .scene-card-surface {
   transform: rotate(-5deg) skewX(-8deg);
