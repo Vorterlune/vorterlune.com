@@ -26,3 +26,20 @@ jobs:
         run: npm run build
       - name: Require current generated CSS
         run: git diff --exit-code -- styles.css
+  motion:
+    name: Verify Firefox window motion
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Install Firefox
+        run: npx playwright install --with-deps firefox
+      - name: Check text stability and motion controls
+        run: npm test

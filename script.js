@@ -39,6 +39,22 @@ function updateMotion() {
 
 if (scene) {
   const pointerArea = scene.closest(".hero") ?? scene;
+  if (
+    typeof CSS.registerProperty === "function" &&
+    CSS.supports("(transform: translateX(round(nearest, 1px, 1px)))")
+  ) {
+    scene.classList.add("pixel-motion");
+    function updateMotionResolution() {
+      const pixelRatio = window.devicePixelRatio || 1;
+      scene.style.setProperty("--motion-pixel", `${1 / pixelRatio}px`);
+      resetParallax();
+      // Re-arm when zooming or moving the window to a different display.
+      window
+        .matchMedia(`(resolution: ${pixelRatio}dppx)`)
+        .addEventListener("change", updateMotionResolution, { once: true });
+    }
+    updateMotionResolution();
+  }
   if (motionToggle) {
     motionToggle.addEventListener("click", () => {
       manuallyPaused = !manuallyPaused;
@@ -75,8 +91,16 @@ if (scene) {
         -0.5,
         Math.min(0.5, (event.clientY - bounds.top) / bounds.height - 0.5),
       );
-      scene.style.setProperty("--scene-x", `${x * 7}px`);
-      scene.style.setProperty("--scene-y", `${y * 5}px`);
+      const pixelRatio = window.devicePixelRatio || 1;
+      // Fractional parent offsets would undo the window's pixel-aligned float.
+      scene.style.setProperty(
+        "--scene-x",
+        `${Math.round(x * 7 * pixelRatio) / pixelRatio}px`,
+      );
+      scene.style.setProperty(
+        "--scene-y",
+        `${Math.round(y * 5 * pixelRatio) / pixelRatio}px`,
+      );
     });
   });
   pointerArea.addEventListener("pointerleave", resetParallax);
