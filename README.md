@@ -22,6 +22,8 @@ Edit utility classes in `index.html` and theme definitions, artwork layering, or
 
 Before committing, run `npm run build` and include the generated `styles.css` with source changes. CI installs the locked dependencies, rebuilds CSS, and fails when the committed output is stale. The site itself has no JavaScript framework, stylesheet CDN, or runtime package dependency.
 
+For motion changes, install the test browser once with `npx playwright install firefox`, then run `npm test`. The Firefox regression test measures all workspace labels over a complete float cycle at 1× and 2× display scale and checks pause, resume, and reduced motion. CI runs the same test.
+
 ## Files and content
 
 - `index.html`: semantic page content, project details, navigation, and search/sharing metadata.
@@ -40,6 +42,8 @@ Below 768px, navigation uses a hamburger disclosure with large tap targets. It c
 The mobile hero centers its copy and places the artwork before a full-width Explore Our Work button. The secondary GitHub hero button and studio stats appear from 768px upward; GitHub remains available through navigation and the footer on phones.
 
 The footer motion control pauses animations for the current visit. Animations respect `prefers-reduced-motion` and suspend while the page is hidden or artwork is offscreen. This includes the floating astronaut, interface windows, code and light trail, staggered blinking stars, spinning vortex, orbiting planets, and their counterrotation. Decorative artwork is hidden from assistive technology; meaningful content, headings, logos, and buttons remain separate HTML.
+
+The workspace window keeps its fixed tilt and moves in physical-pixel increments to prevent its small text from shimmering. Its pixel size follows browser zoom and display resolution; pointer parallax uses the same grid. Browsers without the required CSS animation features retain the original CSS float. Without JavaScript, the scene stays paused.
 
 Check desktop and mobile layouts, keyboard focus, reduced-motion behavior, and JavaScript-disabled rendering after changing the design. Test at 375px, 768px, 1280px, and 1440px, plus 200% browser zoom. Run mobile and desktop Lighthouse audits to assess accessibility, SEO, and loading performance; deployed field measurements are needed to confirm Core Web Vitals.
 
