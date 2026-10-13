@@ -39,22 +39,17 @@ function updateMotion() {
 
 if (scene) {
   const pointerArea = scene.closest(".hero") ?? scene;
-  if (
-    typeof CSS.registerProperty === "function" &&
-    CSS.supports("(transform: translateX(round(nearest, 1px, 1px)))")
-  ) {
-    scene.classList.add("pixel-motion");
-    function updateMotionResolution() {
-      const pixelRatio = window.devicePixelRatio || 1;
-      scene.style.setProperty("--motion-pixel", `${1 / pixelRatio}px`);
-      resetParallax();
-      // Re-arm when zooming or moving the window to a different display.
-      window
-        .matchMedia(`(resolution: ${pixelRatio}dppx)`)
-        .addEventListener("change", updateMotionResolution, { once: true });
-    }
-    updateMotionResolution();
+  function updateMotionResolution() {
+    const pixelRatio = window.devicePixelRatio || 1;
+    // Keep the text's soft outline at one physical display pixel.
+    scene.style.setProperty("--motion-pixel", `${1 / pixelRatio}px`);
+    resetParallax();
+    // Re-arm when zooming or moving the window to a different display.
+    window
+      .matchMedia(`(resolution: ${pixelRatio}dppx)`)
+      .addEventListener("change", updateMotionResolution, { once: true });
   }
+  updateMotionResolution();
   if (motionToggle) {
     motionToggle.addEventListener("click", () => {
       manuallyPaused = !manuallyPaused;
@@ -92,7 +87,7 @@ if (scene) {
         Math.min(0.5, (event.clientY - bounds.top) / bounds.height - 0.5),
       );
       const pixelRatio = window.devicePixelRatio || 1;
-      // Fractional parent offsets would undo the window's pixel-aligned float.
+      // Keep parent parallax aligned to protect the editor's small code text.
       scene.style.setProperty(
         "--scene-x",
         `${Math.round(x * 7 * pixelRatio) / pixelRatio}px`,

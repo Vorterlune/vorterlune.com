@@ -143,7 +143,7 @@ test("workspace text keeps consistent contrast throughout a moving cycle", { tim
             card.getAnimations()[0].currentTime = time;
           }, frame * duration / 39);
         } else {
-          // Parent parallax must not reintroduce fractional-pixel shimmer.
+          // Parent parallax must keep text contrast stable, too.
           await page.mouse.move(100 + (frame - 40) * 160, frame % 2 ? 600 : 200);
         }
         await settle(page);
@@ -181,6 +181,64 @@ test("workspace text keeps consistent contrast throughout a moving cycle", { tim
         variations.filter(({ variation }) => variation >= 0.1).map(({ label, variation }) => `${label}: ${(variation * 100).toFixed(1)}%`),
         [],
         `Workspace text contrast must vary by less than 10% at DPR ${dpr}`,
+      );
+    } finally {
+      await page.close();
+    }
+  }
+});
+
+test("workspace floating motion advances smoothly between display frames", { timeout: 30_000 }, async (t) => {
+  for (const dpr of [1, 2]) {
+    const page = await openPage(dpr);
+    try {
+      await page.evaluate(() => {
+        document.getAnimations().forEach((animation) => {
+          animation.pause();
+          animation.currentTime = 0;
+        });
+      });
+      const timing = await page.locator(workspace).evaluate((card) => {
+        const animation = card.getAnimations()[0];
+        if (!animation) return null;
+        const { duration, delay } = animation.effect.getTiming();
+        return { duration, delay };
+      });
+      assert.ok(timing && Number.isFinite(timing.duration) && timing.duration > 0, "Workspace must float");
+
+      // Sample a second around the middle of the upward journey, where a gentle
+      // float advances by less than a physical pixel each 60 Hz display frame.
+      const center = ((timing.duration / 4 + timing.delay) % timing.duration + timing.duration) % timing.duration;
+      const positions = await page.locator(workspace).evaluate(async (card, center) => {
+        const animation = card.getAnimations()[0];
+        const surface = card.querySelector(".scene-card-surface");
+        const positions = [];
+        for (let frame = 0; frame <= 60; frame++) {
+          animation.currentTime = center - 500 + frame * (1000 / 60);
+          await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+          const bounds = surface.getBoundingClientRect();
+          positions.push({ x: bounds.x + bounds.width / 2, y: bounds.y + bounds.height / 2 });
+        }
+        return positions;
+      }, center);
+
+      const steps = positions.slice(1).map((position, index) => (
+        Math.hypot(position.x - positions[index].x, position.y - positions[index].y) * dpr
+      ));
+      const travel = Math.hypot(positions.at(-1).x - positions[0].x, positions.at(-1).y - positions[0].y) * dpr;
+      assert.ok(travel > 1, `Workspace must visibly travel through the sampled interval at DPR ${dpr}`);
+      const averageStep = travel / steps.length;
+      assert.ok(averageStep < 1, "The interval must exercise movement smaller than one physical pixel per frame");
+      const stalledFraction = steps.filter((step) => step < 0.0001).length / steps.length;
+      const largestStep = Math.max(...steps);
+      t.diagnostic(`Firefox DPR ${dpr}: ${(stalledFraction * 100).toFixed(1)}% stalled frames; largest movement ${(largestStep / averageStep).toFixed(1)}× the average frame`);
+      assert.ok(
+        stalledFraction <= 0.1,
+        `Workspace motion must advance continuously at DPR ${dpr}; ${(stalledFraction * 100).toFixed(1)}% of frames were stationary`,
+      );
+      assert.ok(
+        largestStep <= averageStep * 3,
+        `Workspace motion must avoid sudden jumps at DPR ${dpr}; largest step ${largestStep.toFixed(3)} physical pixels versus average ${averageStep.toFixed(3)}`,
       );
     } finally {
       await page.close();
