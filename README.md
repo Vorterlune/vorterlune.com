@@ -22,7 +22,7 @@ Edit utility classes in `index.html` and theme definitions, artwork layering, or
 
 Before committing, run `npm run build` and include the generated `styles.css` with source changes. CI installs the locked dependencies, rebuilds CSS, and fails when the committed output is stale. The site itself has no JavaScript framework, stylesheet CDN, or runtime package dependency.
 
-For motion changes, install the test browser once with `npx playwright install firefox`, then run `npm test`. The Firefox regression tests measure all workspace labels over a complete float cycle at 1× and 2× display scale, check for stalls and jumps in 60 Hz movement, and verify pause, resume, and reduced motion. CI runs the same tests.
+For motion changes, install the test browser once with `npx playwright install firefox`, then run `npm test`. The Firefox regression tests measure workspace and editor text at 1× and 2× display scale, check for stalls and jumps in the float and mouse parallax, and verify pause, resume, reduced motion, and offscreen behavior. CI runs the same tests.
 
 ## Files and content
 
@@ -43,7 +43,7 @@ The mobile hero centers its copy and places the artwork before a full-width Expl
 
 The footer motion control pauses animations for the current visit. Animations respect `prefers-reduced-motion` and suspend while the page is hidden or artwork is offscreen. This includes the floating astronaut, interface windows, code and light trail, staggered blinking stars, spinning vortex, orbiting planets, and their counterrotation. Decorative artwork is hidden from assistive technology; meaningful content, headings, logos, and buttons remain separate HTML.
 
-The workspace window keeps its fixed tilt while floating continuously between pixels. Slightly fuller letter strokes and a subtle same-color text shadow keep its text consistent without blurring the window or snapping its float. The shadow follows browser zoom and display resolution to stay at one physical pixel. Pointer parallax stays aligned to physical pixels to protect the editor's small code text. Without JavaScript, the scene stays paused.
+Both windows keep their fixed tilt while floating continuously between pixels. Slightly fuller letter strokes and subtle same-color text shadows keep their text consistent; the shadows scale with display resolution. Mouse parallax eases toward fractional positions over 180ms and returns smoothly when the pointer leaves. Pausing motion, hiding the page, moving the artwork offscreen, or enabling reduced motion cancels that transition immediately. Without JavaScript, the scene stays paused.
 
 Check desktop and mobile layouts, keyboard focus, reduced-motion behavior, and JavaScript-disabled rendering after changing the design. Test at 375px, 768px, 1280px, and 1440px, plus 200% browser zoom. Run mobile and desktop Lighthouse audits to assess accessibility, SEO, and loading performance; deployed field measurements are needed to confirm Core Web Vitals.
 

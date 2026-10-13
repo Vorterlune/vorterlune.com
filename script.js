@@ -41,9 +41,8 @@ if (scene) {
   const pointerArea = scene.closest(".hero") ?? scene;
   function updateMotionResolution() {
     const pixelRatio = window.devicePixelRatio || 1;
-    // Keep the text's soft outline at one physical display pixel.
+    // Scale text outlines with display resolution, independently of motion.
     scene.style.setProperty("--motion-pixel", `${1 / pixelRatio}px`);
-    resetParallax();
     // Re-arm when zooming or moving the window to a different display.
     window
       .matchMedia(`(resolution: ${pixelRatio}dppx)`)
@@ -86,16 +85,8 @@ if (scene) {
         -0.5,
         Math.min(0.5, (event.clientY - bounds.top) / bounds.height - 0.5),
       );
-      const pixelRatio = window.devicePixelRatio || 1;
-      // Keep parent parallax aligned to protect the editor's small code text.
-      scene.style.setProperty(
-        "--scene-x",
-        `${Math.round(x * 7 * pixelRatio) / pixelRatio}px`,
-      );
-      scene.style.setProperty(
-        "--scene-y",
-        `${Math.round(y * 5 * pixelRatio) / pixelRatio}px`,
-      );
+      scene.style.setProperty("--scene-x", `${x * 7}px`);
+      scene.style.setProperty("--scene-y", `${y * 5}px`);
     });
   });
   pointerArea.addEventListener("pointerleave", resetParallax);

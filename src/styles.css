@@ -262,6 +262,7 @@
   pointer-events: none;
   container-type: inline-size;
   transform: translate(var(--scene-x, 0px), var(--scene-y, 0px));
+  transition: transform 180ms ease-out;
 }
 .hero-composition {
   position: relative;
@@ -534,11 +535,18 @@
   --float-tilt: 0deg;
   animation-duration: 17s;
   animation-delay: -8s;
-  will-change: transform;
 }
 .scene-card--editor .scene-card-surface {
   transform: rotate(-5deg) skewX(-8deg);
   background: linear-gradient(135deg, #242424f2, #080808f5 35%, #030303f5);
+  /* Avoid resampling separate text layers during parent parallax. */
+  will-change: auto;
+}
+.scene-card--editor .card-window-bar span,
+.scene-card--editor .card-window-bar b,
+.editor-content {
+  font-weight: 550;
+  text-shadow: 0 0 calc(1.5 * var(--motion-pixel, 1px)) currentColor;
 }
 .scene-card--editor .card-window-bar {
   height: 3.5cqi;
@@ -706,6 +714,9 @@
 }
 .motion-paused [data-motion-layer] {
   animation-play-state: paused;
+}
+.motion-paused .hero-art {
+  transition: none;
 }
 @keyframes card-float {
   0%,
