@@ -443,28 +443,7 @@
   height: 29%;
   animation-duration: 15s;
   animation-delay: -3s;
-}
-@property --workspace-drift {
-  syntax: "<number>";
-  inherits: false;
-  initial-value: 0;
-}
-/* Keep the glyphs on the same pixel grid throughout the float. */
-.pixel-motion .scene-card--workspace {
-  animation-name: workspace-float;
-  transform: translate3d(
-    round(
-      nearest,
-      calc(var(--float-drift) * var(--workspace-drift)),
-      var(--motion-pixel, 1px)
-    ),
-    round(
-      nearest,
-      calc(var(--float-rise) * var(--workspace-drift)),
-      var(--motion-pixel, 1px)
-    ),
-    0
-  );
+  --float-tilt: 0deg;
 }
 .scene-card--workspace .scene-card-surface {
   transform: rotate(6deg) skewX(1deg);
@@ -512,6 +491,12 @@
 .workspace-item--active {
   background: #ffffff0e;
   color: white;
+}
+.workspace-item,
+.workspace-content {
+  /* Fuller strokes and a soft outline stay consistent during subpixel motion. */
+  font-weight: 550;
+  text-shadow: 0 0 var(--motion-pixel, 1px) currentColor;
 }
 .workspace-item svg,
 .workspace-content svg {
@@ -730,15 +715,6 @@
   50% {
     transform: translate3d(var(--float-drift), var(--float-rise), 0)
       rotate(var(--float-tilt));
-  }
-}
-@keyframes workspace-float {
-  0%,
-  100% {
-    --workspace-drift: 0;
-  }
-  50% {
-    --workspace-drift: 1;
   }
 }
 @keyframes vortex-spin {
